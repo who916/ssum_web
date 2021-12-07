@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.kyobo.dev.ssum.web;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
