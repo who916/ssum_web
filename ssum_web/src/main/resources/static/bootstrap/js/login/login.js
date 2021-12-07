@@ -96,9 +96,9 @@ function login(){
 		    
 		    error : function(XMLHttpRequest, textStatus, errorThrown){
 		    		var res = XMLHttpRequest.responseJSON;
-		    	    console.log(res.code);
-		    	    
-					alert(res.msg);
+					//alert(res.msg);
+					alert(XMLHttpRequest.statusText);
+
 		    }
 		
 		});
