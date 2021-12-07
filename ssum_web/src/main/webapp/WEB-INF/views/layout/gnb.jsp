@@ -8,6 +8,7 @@
 <body>
 <!-- jQuery -->
 <script src="/webjars/jquery/dist/jquery.min.js"></script>
+<!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
 		<div class="container px-4 px-lg-5">
 			<a href="/" class="navbar-brand">쑴</a>
