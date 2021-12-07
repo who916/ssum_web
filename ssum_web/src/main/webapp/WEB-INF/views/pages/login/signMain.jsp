@@ -48,20 +48,20 @@
 							<div
 								style="justify-content: center; display: grid; align-items: center;">
 								<button class="btn-sign naver" onclick="">
-									<img src="/assets/svgs/sns/naver.svg" class="me-xl-2" />
+									<img src="/bootstrap/assets/svgs/sns/naver.svg" class="me-xl-2" />
 									<p>네이버로 간편가입</p>
 								</button>
 								<button class="btn-sign kakao" onclick="">
-									<img src="/assets/svgs/sns/kakao.svg" class="me-xl-2" />
+									<img src="/bootstrap/assets/svgs/sns/kakao.svg" class="me-xl-2" />
 									<p>카카오로 간편가입</p>
 								</button>
 								<button class="btn-sign google" onclick="">
-									<img src="/assets/svgs/sns/google.svg"
+									<img src="/bootstrap/assets/svgs/sns/google.svg"
 										class="me-xl-2" />
 									<p>구글로 간편가입</p>
 								</button>
 								<button class="btn-sign apple" onclick="">
-									<img src="/assets/svgs/sns/apple.svg" class="me-xl-2" />
+									<img src="/bootstrap/assets/svgs/sns/apple.svg" class="me-xl-2" />
 									<p>애플로 간편가입</p>
 								</button>
 							</div>
