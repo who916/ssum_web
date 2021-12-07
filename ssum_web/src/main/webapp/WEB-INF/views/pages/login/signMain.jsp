@@ -10,7 +10,7 @@
 <meta name="author" content="" />
 <title>쑴</title>
 <link rel="icon" type="image/x-icon"
-	href="/bootstrap/assets/favicon.ico" />
+	href="/assets/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
 	crossorigin="anonymous"></script>
@@ -48,20 +48,20 @@
 							<div
 								style="justify-content: center; display: grid; align-items: center;">
 								<button class="btn-sign naver" onclick="">
-									<img src="/bootstrap/assets/svgs/sns/naver.svg" class="me-xl-2" />
+									<img src="/assets/svgs/sns/naver.svg" class="me-xl-2" />
 									<p>네이버로 간편가입</p>
 								</button>
 								<button class="btn-sign kakao" onclick="">
-									<img src="/bootstrap/assets/svgs/sns/kakao.svg" class="me-xl-2" />
+									<img src="/assets/svgs/sns/kakao.svg" class="me-xl-2" />
 									<p>카카오로 간편가입</p>
 								</button>
 								<button class="btn-sign google" onclick="">
-									<img src="/bootstrap/assets/svgs/sns/google.svg"
+									<img src="/assets/svgs/sns/google.svg"
 										class="me-xl-2" />
 									<p>구글로 간편가입</p>
 								</button>
 								<button class="btn-sign apple" onclick="">
-									<img src="/bootstrap/assets/svgs/sns/apple.svg" class="me-xl-2" />
+									<img src="/assets/svgs/sns/apple.svg" class="me-xl-2" />
 									<p>애플로 간편가입</p>
 								</button>
 							</div>
@@ -77,6 +77,6 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="/bootstrap/js/scripts.js"></script>
+	<script src="/js/scripts.js"></script>
 </body>
 </html>
