@@ -45,70 +45,70 @@
 				<div class="col-md-10 col-lg-8 col-xl-7">
 					<div class="my-5" style="justify-content: center; display: grid;">
 						<label style="font-weight: 600; margin-bottom: 1rem;">회원가입</label>
-						<form id="contactForm"
+						<form id="signUpForm"
 							style="margin-bottom: 0.8rem; width: 24rem;"
 							data-sb-form-api-token="API_TOKEN">
 							<div class="form-floating">
 								<input class="form-control" id="id" type="text"
 									placeholder="아이디는 이메일 형태만 입력가능 합니다."
-									data-sb-validations="required" /> <label for="id"
+									data-sb-validations="required"  data-sb-type="email"/> <label for="id"
 									style="font-size: 1rem;">아이디</label>
-								<div class="invalid-feedback" id="validateId"
+								<div class="invalid-feedback" id="validateid"
 									data-sb-feedback="id:required">아이디를 입력하세요</div>
 								<div class="invalid-feedback" id="validateInputid"
 									data-sb-feedback="id:required">아이디는 이메일 형태만 입력 가능합니다</div>
 							</div>
 							<div class="form-floating">
-								<input class="form-control" id="password" type="password"
-									placeholder="비밀번호를 입력하세요" data-sb-validations="required" /> <label
-									for="password" style="font-size: 1rem;">비밀번호</label>
-								<div class="invalid-feedback" id="validatePw"
+								<input class="form-control" id="pw" type="password"
+									placeholder="비밀번호를 입력하세요" data-sb-validations="required" data-sb-type="password" /> <label
+									for="password" style="font-size: 1rem;" >비밀번호</label>
+								<div class="invalid-feedback" id="validatepw"
 									data-sb-feedback="pw:required">비밀번호를 입력하세요</div>
 								<div class="invalid-feedback" id="validateInputpw"
 									data-sb-feedback="id:required">비밀번호는 영문/숫자만 입력 가능합니다</div>
 							</div>
 							<div class="form-floating" style="margin-bottom: 2rem;">
-								<input class="form-control" id="passwordChk" type="password"
-									placeholder="비밀번호를 다시 한 번 입력하세요" data-sb-validations="required" />
+								<input class="form-control" id="pwChk" type="password"
+									placeholder="비밀번호를 다시 한 번 입력하세요" data-sb-validations="required"  data-sb-type="password"/>
 								<label for="password" style="font-size: 1rem;">비밀번호 확인</label>
-								<div class="invalid-feedback" id="validateChkPw"
+								<div class="invalid-feedback" id="validatepwChk"
 									data-sb-feedback="chkpw:required">비밀번호를 한번 더 입력하세요</div>
-								<div class="invalid-feedback" id="validateChkInputpw"
+								<div class="invalid-feedback" id="validateInputpwChkk"
 									data-sb-feedback="chkpw:required">비밀번호는 영문/숫자만 입력 가능합니다</div>
-								<div class="invalid-feedback" id="validateChkValidpw"
+								<div class="invalid-feedback" id="validateSamepwChk"
 									data-sb-feedback="chkpw:required">입력한 비밀번호와 다릅니다.</div>
 							</div>
 							<div class="form-floating">
 								<input class="form-control" id="name" type="text"
-									placeholder="이름을 입력하세요" data-sb-validations="required" /> <label
+									placeholder="이름을 입력하세요" data-sb-validations="required" data-sb-type="korean" /> <label
 									for="name" style="font-size: 1rem;">이름</label>
-								<div class="invalid-feedback" id="validateName"
+								<div class="invalid-feedback" id="validatename"
 									data-sb-feedback="name:required">이름을 입력하세요.</div>
-								<div class="invalid-feedback" id="validateInputName"
+								<div class="invalid-feedback" id="validateInputname"
 									data-sb-feedback="name:required">이름은 한글만 입력 가능합니다.</div>
 							</div>
 							<div style="display: inline-flex;">
 								<div class="form-floating">
 									<input class="form-control birth" id="yyyy" type="text"
-										placeholder="생년월일을 입력하세요" data-sb-validations="required"
+										placeholder="생년월일을 입력하세요" data-sb-validations="required" data-sb-type="number"
 										maxlength="4" /> <label for="yyyy" style="font-size: 1rem;">생년</label>
 								</div>
 								<div class="form-floating">
 									<input class="form-control birth" id="mm" type="text"
-										placeholder="생년월일을 입력하세요" data-sb-validations="required"
+										placeholder="생년월일을 입력하세요" data-sb-validations="required" data-sb-type="number"
 										maxlength="2" /> <label for="mm" style="font-size: 1rem;">월</label>
 								</div>
 								<div class="form-floating">
 									<input class="form-control birth" id="dd" type="text"
-										placeholder="생년월일을 입력하세요" data-sb-validations="required"
+										placeholder="생년월일을 입력하세요" data-sb-validations="required" data-sb-type="number"
 										maxlength="2" /> <label for="dd" style="font-size: 1rem;">일</label>
 								</div>
 							</div>
 							<div class="form-floating" style="margin-bottom: 10px;">
 								<div class="invalid-feedback" data-sb-feedback="yyyy:required"
-									id="validateBirth">생년월일을 입력하세요.</div>
+									id="validatebirth">생년월일을 입력하세요.</div>
 								<div class="invalid-feedback" data-sb-feedback="yyyy:required"
-									id="validateInputBirth">생년월일은 숫자만 입력가능합니다.</div>
+									id="validateInputbirth">생년월일은 숫자만 입력가능합니다.</div>
 							</div>
 							<label for="gender" class="radio-label"
 								style="margin-bottom: 10px;">성별</label>
@@ -135,22 +135,22 @@
 										</select>
 										<div class="form-floating">
 											<input class="form-control birth" style="height: 3rem;"
-												id="cell2" type="text" data-sb-validations="required"
+												id="cell2" type="text" data-sb-validations="required" data-sb-type="number"
 												maxlength="4" />
 										</div>
 										<div class="form-floating">
 											<input class="form-control birth" id="cell3"
 												style="height: 3rem;" type="text"
-												data-sb-validations="required" maxlength="4" />
+												data-sb-validations="required" data-sb-type="number" maxlength="4" />
 										</div>
 										<button class="btn btn-outline-primary auth"
 											style="margin-top: 0.25rem; maring-left: 10px" id="authNum"
 											onClick="">인증번호받기</button>
 									</div>
 									<div class="form-floating" style="margin-bottom: 10px;">
-										<div class="invalid-feedback" id="validateCellNum"
+										<div class="invalid-feedback" id="validatecell"
 											data-sb-feedback="cell:required">휴대전화 번호를 입력하세요.</div>
-										<div class="invalid-feedback" id="validateInputCellNum"
+										<div class="invalid-feedback" id="validateInputcell"
 											data-sb-feedback="cell:required">휴대전화는 숫자만 입력 가능합니다.</div>
 									</div>
 								</div>

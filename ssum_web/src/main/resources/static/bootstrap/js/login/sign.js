@@ -3,16 +3,12 @@ function init(){
  $(".invalid-feedback").css('display','none');
  
  //입력값 초기화
- $("#id").val('');
- $("#password").val('');
- $("#passwordChk").val('');
- $("#name").val('');
- $("#yyyy").val('');
- $("#mm").val('');
- $("#dd").val('');
+ var elements = $("#signUpForm .form-control");
+ for(var i=0; i < elements.length; i++){
+ 	   var id = elements.eq(i).attr("id");
+ 	   $("#"+id).val('');
+ }
  $("#cell1").val('010');
- $("#cell2").val('');
- $("#cell3").val('');
  
  //성별초기화
  $('input:radio[name=male]').prop('checked',true);
@@ -24,122 +20,87 @@ function init(){
 
 function validationChk(){
 	var isValid = true;
-	
-	var id = $("#id").val();
-	var pw = $("#password").val();
-	var pwChk = $("#passwordChk").val();
-	var name = $("#name").val();
-	//생년월일
-	var yyyy = $("#yyyy").val();
-	var mm = $("#mm").val();
-	var dd = $("#dd").val();
-	//전화번호
-	var cell1 = $("#cell1").val();
-	var cell2 = $("#cell2").val();
-	var cell3 = $("#cell3").val();
-	
-	
-	if(isEmpty(id)){
-		isValid=false;
-		$("#validateId").css('display','block');	
-	}else{
-		$("#validateId").css('display','none');
-	}
-	
-	if(isEmpty(pw)){
-		isValid=false;
-		$("#validatePw").css('display','block');
-	}else{
-		$("#validatePw").css('display','none');
-	}
-	
-	if(isEmpty(pwChk)){
-		isValid=false;
-		$("#validateChkPw").css('display','block');
-	}else{
-		$("#validateChkPw").css('display','none');
-	}
-	
-	//이름체크
-	if(isEmpty(name)){
-		isValid=false;
-		$("#validateName").css('display','block');
-	}else{
-		$("#validateName").css('display','none');
-	}
-	
-	//생년월일체크
-	if(isEmpty(yyyy) || isEmpty(mm) || isEmpty(dd)){
-		isValid=false;
-		$("#validateBirth").css('display','block');
-	}else{
-		$("#validateBirth").css('display','none');
-	}
-	
-	//전화번호체크
-	if(isEmpty(cell1) || isEmpty(cell2) || isEmpty(cell3)){
-		isValid=false;
-		$("#validateCellNum").css('display','block');
-	}else{
-		$("#validateCellNum").css('display','none');
-	}
-	
-	if(pwChk != pw){
-		isValid=false;
-		$("#validateChkValidpw").css('display','block');
-	}else{
-		$("#validateChkValidpw").css('display','none');
-	}
-	
-	//id유효성 체크
-	if(isEmail(id)){
-		$("#validateInputid").css('display','none');
-	}else{
-		isValid=false;
-		$("#validateInputid").css('display','block');
-	}
-	
-	//pw유효성 체크
-	if(isPassword(pw)){
-		$("#validateInputpw").css('display','none');
-	}else{
-		isValid=false;
-		$("#validateInputpw").css('display','block');
-	}
-	
-	//pw 확인 유효성 체크
-	if(isPassword(pwChk)){
-		$("#validateChkInputpw").css('display','none');
-	}else{
-		isValid=false;
-		$("#validateChkInputpw").css('display','block');
+    var invalidCnt  = 0;
+
+    //form 내 input class 전부 validation 체크
+    //기본 설정 값이 있는 성별 및 전화번호 앞자리 제외
+    var elements = $("#signUpForm .form-control");
+	for(var i=0; i < elements.length; i++){
+	   var id = elements.eq(i).attr("id");
+	   var value = $("#"+id).val();
+
+	   //경고 문구 화면 유무여부
+	   var displayVal = 'none';
+
+	   //공란 체크
+	   if(isEmpty(value)){
+       		displayVal = 'block';
+       	}else{
+       		displayVal = 'none';
+       	}
+
+       	//생년월일 및 전화번호 항목일 경우 경고문구 id 변경
+       	var validateId = id;
+       	if(id.indexOf('cell') != -1){
+       	   validateId = 'cell';
+       	}else if(id == 'yyyy' || id == 'mm' || id == 'dd'){
+       	   validateId = 'birth';
+       	}
+
+       	$("#validate"+validateId).css('display',displayVal);
+
+        if(displayVal == 'block'){
+             invalidCnt ++;
+        }
+
+       	//형태 체크
+       	var chkType = $("#"+id).attr('data-sb-type');
+       	if(chkType == 'email'){
+       	    if(isEmail(value)){
+       	        displayVal = 'none';
+       	    }else{
+       	        displayVal = 'block';
+       	    }
+       	}else if(chkType == 'password'){
+       	    if(isPassword(value)){
+                 displayVal = 'none';
+            }else{
+                 displayVal = 'block';
+             }
+       	}else if(chkType == 'name'){
+       	    if(isKorean(value)){
+                 displayVal = 'none';
+            }else{
+                 displayVal = 'block';
+            }
+       	}else if(chkType == 'number'){
+       	    if(isNum(value)){
+                 displayVal = 'none';
+            }else{
+                 displayVal = 'block';
+            }
+       	}
+
+        $("#validateInput"+validateId).css('display',displayVal);
+
+        if(displayVal == 'block'){
+              invalidCnt ++;
+        }
 	}
 
-	//이름 유효성 체크
-	if(isKorean(name)){
-		$("#validateInputName").css('display','none');
+
+	if($("#pwChk").val() != $("#pw").val()){
+		invalidCnt++;
+		$("#validateSamepwChk").css('display','block');
 	}else{
-		isValid=false;
-		$("#validateInputName").css('display','block');
+		$("#validateSamepwChk").css('display','none');
 	}
 	
-     //생년월일 유효성 체크
-	if(isNum(yyyy) || isNum(mm) || isNum(dd)){
-		$("#validateInputBirth").css('display','none');
-	}else{
-		isValid=false;
-		$("#validateInputBirth").css('display','block');
+
+
+	if(invalidCnt > 0 ){
+	    isValid = false;
 	}
-	
-	
-	//전화번호 유효성 체크
-	if(isNum(cell1) || isNum(cell2) || isNum(cell3)){
-		$("#validateInputCellNum").css('display','none');
-	}else{
-		isValid=false;
-		$("#validateInputCellNum").css('display','block');
-	}
-	
 	
 
 	return isValid;
@@ -168,7 +129,6 @@ function signUp(){
 		    success: function(res){
 		    	if(res.success){
 		    		alert('가입에 성공하였습니다. 로그인 화면으로 이동합니다.');
-
 		    		location.replace("/login");
 		    		
 		   		}else{
