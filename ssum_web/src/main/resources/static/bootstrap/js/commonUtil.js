@@ -1,10 +1,13 @@
+function commonUtil(){}
+
+
 /**
 
  * 입력값이  null 인지 체크한다
 
  */
 
-function isNull(input){
+commonUtil.prototype.isNull = function(input){
 
        if (input.value == null || input.value == ""){
 
@@ -16,7 +19,7 @@ function isNull(input){
 
        }
 
-}
+};
 
 /**
 
@@ -30,7 +33,7 @@ function isNull(input){
 
  */
 
-function isEmpty(input){
+commonUtil.prototype.isEmpty = function(input){
 
        if (input == null || input.replace(/ /gi,"") == ""){
 
@@ -42,55 +45,55 @@ function isEmpty(input){
 
        }
 
-}
+};
 
 /**
 *
 *이메일 형태 확인
 *
 */
-function isEmail(asValue) {
+commonUtil.prototype.isEmail = function(asValue) {
 	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
- 
+
 	return regExp.test(asValue);
-}
+};
 
 /**
 *
 *password 형태 확인
 *
 */
-function isPassword(asValue) {
+commonUtil.prototype.isPassword = function(asValue) {
 	var regExp =  /^[A-Za-z0-9+]*$/;
- 
-	return regExp.test(asValue);
-}
 
-function isId(asValue) {
+	return regExp.test(asValue);
+};
+
+commonUtil.prototype.isId = function(asValue) {
 	var regExp = /^[A-Za-z0-9+]*$/;
- 
-	return regExp.test(asValue);
-}
 
-function isKorean(asValue) {
+	return regExp.test(asValue);
+};
+
+commonUtil.prototype.isKorean = function(asValue) {
 	var regExp =/[ㄱ-힣]/;
- 
+
 	return regExp.test(asValue);
-}
+};
 
 
-function isNum(asValue) {
+commonUtil.prototype.isNum= function(asValue) {
 	var regExp = /[0-9]/;
- 
+
 	return regExp.test(asValue);
-}
+};
 
 
-function rtnMsg(res){
+commonUtil.prototype.rtnMsg = function(res){
 	var msg = '';
-	
+
 	switch(res){
-		case "-1000": 	
+		case "-1000":
 		  msg = '존재하지 않는 회원 입니다';
 		case "-1001":
 		  msg = '계정이 존재하지 않거나 이메일 또는 비밀번호가 정확하지 않습니다.';
@@ -105,16 +108,40 @@ function rtnMsg(res){
 		case "-1006":
 		  msg ="해당 자원의 소유자가 아닙니다.";
 		case "-1007":
-          msg= "요청한 자원이 존재 하지 않습니다."; 
+          msg= "요청한 자원이 존재 하지 않습니다.";
         case "-9999":
           msg ="알수 없는 오류가 발생하였습니다.";
         default :
           msg ="알수 없는 오류가 발생하였습니다.";
-		  
+
 	}
-	
+
 	return msg;
-}
+};
+
+commonUtil.prototype.sendAjax = function(sendType, url, header, params, successCallback, errorCallback){
+
+        var sendUrl = "http://13.209.61.51:8080/"+url;
+        //var sendUrl = "http://192.168.1.202:8080/"+url;
+
+        $.ajax({
+			type :sendType,
+		    url :sendUrl,
+		    dataType: 'json',
+		    data: JSON.stringify(params),
+		    headers : header,
+		    success: function(res){
+		    	successCallback(res);
+
+		    },
+
+		    error : function(XMLHttpRequest, textStatus, errorThrown){
+		    		errorCallback(XMLHttpRequest);
+
+		    }
+
+		});
+	};
 
 
  

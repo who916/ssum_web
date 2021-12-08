@@ -2,44 +2,43 @@ var name = "";
 var phone = "";
 var profileImg = "";
 var uid = "";
+var commonUtil;
 
-function setProfileInfo(data){
-    name = data.name;
-    phone = data.phone;
-    profileImageUrl = data.profileImageUrl;
-    uid = data.uid;
+function setProfileInfo(result){
+
+    if(result.success && result.data != null){
+       name = result.data.name;
+        phone = result.data.phone;
+        profileImageUrl = result.data.profileImageUrl;
+        uid = result.data.uid;
+
+        //이름세팅
+        if(name != null){
+            $("#profileNm").append(name);
+        }
+        //전화번호세팅
+        if(phone != null){
+            $("#profilePhone").append(phone);
+        }
+        //img세팅
+        if(profileImageUrl != null){
+            document.getElementById("profileImg").src = profileImageUrl;
+        }
+    }else{
+         var msg  = commonUtil.rtnMsg(result.code);
+         alert(msg);
+    }
 }
 
 function getProfileInfo(accToken){
+            var header = {
+                "X-AUTH-TOKEN" : accToken
+            }
 
-    		$.ajax({
-    			type :"GET",
-    		    url :"http://192.168.1.202:8080/v1/user",
-    		    dataType: 'json',
-    		    data: accToken,
-    		    beforeSend : function(xhr){
-    		    	xhr.setRequestHeader("X-AUTH-TOKEN",accToken);
+            commonUtil.sendAjax("GET","v1/user",header, accToken, function(res){setProfileInfo(res);}, function(res){
+                                    alert(res.statusText);
+            });
 
-    		    },
-    		    success: function(res){
-    		    	if(res.success && res.data != null){
-                        setProfileInfo(res.data);
-
-    		   		}else{
-    		   		   msg  = rtnMsg(res.code);
-    		   		   alert(msg);
-    		   		}
-
-
-    		    },
-
-    		    error : function(XMLHttpRequest, textStatus, errorThrown){
-    		    		var res = XMLHttpRequest.responseJSON;
-                        //alert(res.msg);
-                        alert(XMLHttpRequest.statusText);
-    		    }
-
-    		});
 }
 
 
@@ -57,6 +56,6 @@ function init(){
 
 
 $(document).ready(function () {
-
+    commonUtil = commonUtil.prototype;
 	init();
 });

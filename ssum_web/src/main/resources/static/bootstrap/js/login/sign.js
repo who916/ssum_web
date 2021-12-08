@@ -1,3 +1,5 @@
+var commonUtil;
+
 function init(){
  //안내 문구 reset
  $(".invalid-feedback").css('display','none');
@@ -33,7 +35,7 @@ function validationChk(){
 	   var displayVal = 'none';
 
 	   //공란 체크
-	   if(isEmpty(value)){
+	   if(commonUtil.isEmpty(value)){
        		displayVal = 'block';
        	}else{
        		displayVal = 'none';
@@ -56,25 +58,25 @@ function validationChk(){
        	//형태 체크
        	var chkType = $("#"+id).attr('data-sb-type');
        	if(chkType == 'email'){
-       	    if(isEmail(value)){
+       	    if(commonUtil.isEmail(value)){
        	        displayVal = 'none';
        	    }else{
        	        displayVal = 'block';
        	    }
        	}else if(chkType == 'password'){
-       	    if(isPassword(value)){
+       	    if(commonUtil.isPassword(value)){
                  displayVal = 'none';
             }else{
                  displayVal = 'block';
              }
        	}else if(chkType == 'name'){
-       	    if(isKorean(value)){
+       	    if(commonUtil.isKorean(value)){
                  displayVal = 'none';
             }else{
                  displayVal = 'block';
             }
        	}else if(chkType == 'number'){
-       	    if(isNum(value)){
+       	    if(commonUtil.isNum(value)){
                  displayVal = 'none';
             }else{
                  displayVal = 'block';
@@ -115,45 +117,30 @@ function signUp(){
 		   ,password : $("#password").val()
 		   ,name : $("#name").val()
 		}
-		
-		$.ajax({
-			type :"POST",
-		    url :"http://192.168.1.202:8080/v1/signup",
-		    dataType: 'json',
-		    data: JSON.stringify(params),
-		    beforeSend : function(xhr){
-		    	xhr.setRequestHeader("Accept","*/*");
-		    	xhr.setRequestHeader("Content-Type","application/json");
-		    	
-		    },
-		    success: function(res){
-		    	if(res.success){
-		    		alert('가입에 성공하였습니다. 로그인 화면으로 이동합니다.');
-		    		location.replace("/login");
-		    		
-		   		}else{
-		   		   msg  = rtnMsg(res.code);
-		   		   alert(msg);
-		   		}
-		   		
-		   		
-		    },
-		    
-		    error : function(XMLHttpRequest, textStatus, errorThrown){
-		    		var res = XMLHttpRequest.responseJSON;
-					//alert(res.msg);
-					alert(XMLHttpRequest.statusText);
-		    }
-		
-		});
+
+		var header = { "Accept" : "*/*", "Content-Type" : "application/json"}
+
+		commonUtil.sendAjax("POST","v1/signup",header, params, function(res){
+		    if(res.success){ //success return
+            	alert('가입에 성공하였습니다. 로그인 화면으로 이동합니다.');
+            	location.replace("/login");
+
+            }else{
+            	msg  = rtnMsg(res.code);
+            	alert(msg);
+            }
+		}, function(res){ //error return
+               alert(res.statusText);
+        });
+
 	}
-	
+
 }
 
 
 
 $(document).ready(function () {
-
+    commonUtil = commonUtil.prototype;
 	init();
 	
 

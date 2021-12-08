@@ -44,14 +44,34 @@
 			<div class="row gx-4 gx-lg-5 justify-content-center">
 				<div class="col-md-10 col-lg-8 col-xl-7">
 					<div class="my-5" style="justify-content: center; display: grid;">
-					    <div style ="display: inline-block;">
-						<label style="font-weight: 600; margin-bottom: 1rem;">프로필</label>
+					    <div style ="display: inline-block; margin-bottom:2rem;" >
+						<label style="font-weight: 600; margin-bottom: 1.25rem;">프로필</label>
 						<a href="/author/registration.do" style="margin-left:25rem;">
-						    <button class="btn btn-primary normal text-uppercase">작가 신청 바로가기</button></a>
+						    <button class="btn btn-primary normal auth text-uppercase" style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;">작가 신청 바로가기</button></a>
                         </div>
-						<form id="contactForm" style="margin-bottom: 0.8rem;"
-							data-sb-form-api-token="API_TOKEN">
-
+						<form id="ProfileForm" style="margin-bottom: 0.8rem;">
+						    <div style="display:inline-flex; border:1px solid #ced4da; padding:3rem 3rem; margin-left:0.6rem;">
+						       <!--이미지--->
+						       <div style="display:inline-grid;">
+                                  <img src="/bootstrap/assets/img/icon/avatar.png" style="width:8rem; height:8rem; margin-bottom:1rem;" id="profileImg"></img>
+                                  <button class="btn btn-outline-primary auth normal" style="width: 8rem;">프로필 이미지 등록하기</button>
+						       </div>
+						       <!--정보--->
+						        <div style="margin-left:10rem;">
+						            <div style="display:inherit; margin-bottom:1rem;">
+						             <label style="font-weight:600; font-size:1rem;">이름</label>
+						             <span class="span-info" id="profileNm"></span>
+						             </div>
+						             <div style="display:inherit; margin-bottom:1rem;">
+                                         <label style="font-weight:600; font-size:1rem;">휴대전화 번호</label>
+                                         <span class="span-info" id="profilePhone"></span>
+                                    </div>
+                                     <div style="display:inherit; margin-bottom:1rem;">
+                                       <label style="font-weight:600; font-size:1rem;">등급</label>
+                                       <span class="span-info" id="profilePhone">일반회원</span>
+                                     </div>
+						        </div>
+						    </div>
 						</form>
 					</div>
 				</div>
