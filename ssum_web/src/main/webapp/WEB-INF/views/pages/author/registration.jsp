@@ -9,7 +9,6 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>쑴</title>
-<link rel="icon" type="image/x-icon" href="/bootstrap/assets/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
 	crossorigin="anonymous"></script>

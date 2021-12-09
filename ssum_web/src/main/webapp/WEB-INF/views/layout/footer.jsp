@@ -3,7 +3,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쑴</title>
 </head>
 <body>
 <footer class="border-top">
