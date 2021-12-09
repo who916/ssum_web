@@ -35,8 +35,16 @@ function getProfileInfo(accToken){
                 "X-AUTH-TOKEN" : accToken
             }
 
-            commonUtil.sendAjax("GET","v1/user",header, accToken, function(res){setProfileInfo(res);}, function(res){
-                                    alert(res.statusText);
+            commonUtil.sendAjax("GET","v1/user",header, accToken, function(res){setProfileInfo(res);}
+            , function(res){ //실패 callback
+                  var msg = "";
+                  if(res.responseJSON != null){
+                       msg = res.responseJSON.msg;
+                    }else{
+                       msg = res.statusText;
+                     }
+
+                    alert(msg);
             });
 
 }
@@ -47,7 +55,7 @@ function init(){
     var accToken =  localStorage.getItem("accToken");
     if(accToken == null){
         alert("유효하지 않은 접근 입니다. 로그인 후 다시 시도해 주세요");
-        location.replace("/login");
+        commonUtil.redirect("/login");
     }else{
        getProfileInfo(accToken);
     }

@@ -64,7 +64,7 @@ function setTokens(res){
 		   localStorage.setItem("accToken", accessToken);
 		   localStorage.setItem("refToken", refreshToken);
 
-		   location.replace("/");
+		   commonUtil.redirect("/");
 
 		   }else{
 		    var msg  = commonUtil.rtnMsg(res.code);
@@ -78,16 +78,22 @@ function login(){
 	
 	if(validationChk()){//입력값 체크 후 로그인 로직 처리
 
-		//골뱅이 인코딩안되도록 replace처리
 		var params = {
 		  id : $("#id").val(),
 		  password : $("#password").val()
 		}
 
-		var header = { "Accept" : "*/*", "Content-Type" : "application/json"}
+		commonUtil.sendAjax("POST", "v1/signin","",params, function(res){setTokens(res);}, function(res){
+		       var msg = "";
+		       if(res.responseJSON != null){
+		          msg = res.responseJSON.msg;
 
-		commonUtil.sendAjax("POST", "v1/signin",header,params, function(res){setTokens(res);}, function(res){
-               alert(res.statusText);
+		       }else{
+		           msg = res.statusText;
+		       }
+
+		       alert(msg);
+
 		});
 
 	}

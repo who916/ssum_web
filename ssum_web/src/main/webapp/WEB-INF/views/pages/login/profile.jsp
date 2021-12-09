@@ -47,14 +47,17 @@
 					    <div style ="display: inline-block; margin-bottom:2rem;" >
 						<label style="font-weight: 600; margin-bottom: 1.25rem;">프로필</label>
 						<a href="/author/registration.do" style="margin-left:25rem;">
-						    <button class="btn btn-primary normal auth text-uppercase" style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;">작가 신청 바로가기</button></a>
+						    <button class="btn btn-primary normal auth text-uppercase"
+						    style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;">작가 신청 바로가기</button></a>
                         </div>
 						<form id="ProfileForm" style="margin-bottom: 0.8rem;">
-						    <div style="display:inline-flex; border:1px solid #ced4da; padding:3rem 3rem; margin-left:0.6rem;">
+						    <div style="display:inline-flex; border:1px solid #ced4da; padding:3rem 3rem; width:100%;">
 						       <!--이미지--->
-						       <div style="display:inline-grid;">
-                                  <img src="/bootstrap/assets/img/icon/avatar.png" style="width:8rem; height:8rem; margin-bottom:1rem;" id="profileImg"></img>
-                                  <button class="btn btn-outline-primary auth normal" style="width: 8rem;">프로필 이미지 등록하기</button>
+						       <div style="display:block;">
+                                  <img src="/bootstrap/assets/img/icon/icon-avatar.png"
+                                   style="width:8rem; height:8rem; margin-bottom:1rem; display:list-item;" id="profileImg"></img>
+                                  <button class="btn btn-outline-primary auth normal" style="width: 8rem;"> 프로필 이미지 등록하기
+                                  </button>
 						       </div>
 						       <!--정보--->
 						        <div style="margin-left:10rem;">
@@ -70,8 +73,19 @@
                                        <label style="font-weight:600; font-size:1rem;">등급</label>
                                        <span class="span-info" id="profilePhone">일반회원</span>
                                      </div>
+                                     <div style="display:inline-grid; margin-bottom:1rem;">
+                                         <label style="font-weight:600; font-size:1rem; margin-bottom:0.5rem;">관심장르</label>
+                                          <button class="btn btn-outline-primary auth normal" style="width: 8rem;">
+                                            관심장르설정 </button>
+                                      </div>
 						        </div>
 						    </div>
+						    <div style="border-top: 1px solid #ced4da; margin-top : 2rem;"/>
+						        <div style="justify-content:flex-end; display:flex; margin-top:1rem;">
+			                     <button class="btn btn-primary normal auth"  style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;"
+			                       id="editProfileButton">회원 정보 수정</button>
+			                     </div>
+                            </div>
 						</form>
 					</div>
 				</div>

@@ -88,6 +88,9 @@ commonUtil.prototype.isNum= function(asValue) {
 	return regExp.test(asValue);
 };
 
+commonUtil.prototype.redirect = function(url){
+    location.replace(url);
+};
 
 commonUtil.prototype.rtnMsg = function(res){
 	var msg = '';

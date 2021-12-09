@@ -118,19 +118,24 @@ function signUp(){
 		   ,name : $("#name").val()
 		}
 
-		var header = { "Accept" : "*/*", "Content-Type" : "application/json"}
-
-		commonUtil.sendAjax("POST","v1/signup",header, params, function(res){
+		commonUtil.sendAjax("POST","v1/signup","", params, function(res){
 		    if(res.success){ //success return
-            	alert('가입에 성공하였습니다. 로그인 화면으로 이동합니다.');
-            	location.replace("/login");
+            	alert('가입이 완료되었습니다. 로그인 화면으로 이동합니다.');
+            	commonUtil.redirect("/login");
 
             }else{
-            	msg  = rtnMsg(res.code);
+            	var msg  = rtnMsg(res.code);
             	alert(msg);
             }
 		}, function(res){ //error return
-               alert(res.statusText);
+              var msg = "";
+              if(res.responseJSON != null){
+                   msg = res.responseJSON.msg;
+              }else{
+                   msg = res.statusText;
+              }
+
+               alert(msg);
         });
 
 	}
