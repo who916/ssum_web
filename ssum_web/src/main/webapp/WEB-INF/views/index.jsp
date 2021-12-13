@@ -36,10 +36,10 @@
 		<div class="container position-relative px-4 px-lg-5">
 			<div class="row gx-4 gx-lg-5 justify-content-center">
 				<div class="col-md-10 col-lg-8 col-xl-7">
-					<!--<div class="site-heading">
+					<div class="site-heading">
 						<h2>글이 작품이 되는 공간, 쑴</h2>
 						<span class="subheading">쑴에 담긴 아름다운 작품을 감상해보세요</span>
-					</div>-->
+					</div>
 				</div>
 			</div>
 		</div>
