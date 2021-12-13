@@ -122,6 +122,17 @@ commonUtil.prototype.rtnMsg = function(res){
 	return msg;
 };
 
+commonUtil.prototype.failMsg = function(res){
+ var msg = "";
+     if(res.responseJSON != null){
+          msg = res.responseJSON.msg;
+      }else{
+         msg = res.statusText;
+       }
+
+       alert(msg);
+}
+
 commonUtil.prototype.sendAjax = function(sendType, url, header, params, successCallback, errorCallback){
 
         var sendUrl = "http://13.209.61.51:8080/"+url;

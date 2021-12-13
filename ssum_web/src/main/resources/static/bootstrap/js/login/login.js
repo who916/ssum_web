@@ -83,16 +83,10 @@ function login(){
 		  password : $("#password").val()
 		}
 
-		commonUtil.sendAjax("POST", "v1/signin","",params, function(res){setTokens(res);}, function(res){
-		       var msg = "";
-		       if(res.responseJSON != null){
-		          msg = res.responseJSON.msg;
-
-		       }else{
-		           msg = res.statusText;
-		       }
-
-		       alert(msg);
+		commonUtil.sendAjax("POST", "v1/signin","",params
+		, function(res){setTokens(res);}
+		, function(res){
+		      commonUtil.failMsg(res);
 
 		});
 

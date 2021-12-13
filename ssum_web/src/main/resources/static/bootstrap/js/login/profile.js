@@ -37,14 +37,7 @@ function getProfileInfo(accToken){
 
             commonUtil.sendAjax("GET","v1/user",header, accToken, function(res){setProfileInfo(res);}
             , function(res){ //실패 callback
-                  var msg = "";
-                  if(res.responseJSON != null){
-                       msg = res.responseJSON.msg;
-                    }else{
-                       msg = res.statusText;
-                     }
-
-                    alert(msg);
+                 commonUtil.failMsg(res);
             });
 
 }

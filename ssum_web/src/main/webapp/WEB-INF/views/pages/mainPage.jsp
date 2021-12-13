@@ -23,16 +23,17 @@
            <div class="row gx-4 gx-lg-5 justify-content-center">
              <div class="col-md-10 col-lg-8 col-xl-7" style="display:inline-grid;">
                 <!--추천 글 리스트 -->
-				<article class="post_unit" id="suggestUnit">
+				<article class="post_unit" id="likesUnit">
 				    <div class="unit_header">
 				        <label style="font-weight: 600; margin-bottom: 1.25rem;">추천 글 리스트</label>
 				    </div>
-				    <div class="thumb_type01" id ="suggestUnitList">
+				    <div class="thumb_type01" id ="likesUnitList">
 				       <!-- post item-->
 				       <div class = "bx-wrapper" style="max-width:1000px;">
 				            <div class="bx-viewport" aria-live="polite">
-				                <ul id="suggestList">
-				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;">
+				                <ul id="likesList">
+				                  <!--Sample Contents Area-->
+                                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;">
 				                        <a href="#" class="cover">
 				                            <span class="in">
 				                                <img src="/bootstrap/assets/img/book/suggest/readbook-1.png" alt="표지1">
@@ -75,15 +76,16 @@
 				</article>
 				<!-- 최신 글 리스트 -->
 				<div style="border-top:1px solid #dee2e6; margin-bottom:2rem;"></div>
-                <article class="post_unit" id="recentUnit">
+                <article class="post_unit" id="newUnit">
 				    <div class="unit_header">
 				        <label style="font-weight: 600; margin-bottom: 1.25rem;">최신 글 리스트</label>
 				    </div>
-				    <div class="thumb_type01" id ="recentUnitList">
+				    <div class="thumb_type01" id ="newUnitList">
 				       <!-- post item-->
-				       <div class = "bx-wrapper" style="max-width:1000px;">
+				       <div class = "bx-wrapper">
 				            <div class="bx-viewport" aria-live="polite">
-				                <ul id="recentList">
+				                <ul id="newList">
+				                 <!--Sample Contents Area-->
 				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;">
 				                        <a href="#" class="cover">
 				                            <span class="in">
@@ -127,15 +129,16 @@
 				</article
                 <!-- 인기 글 리스트 -->
 				<div style="border-top:1px solid #dee2e6; margin-bottom:2rem; "></div>
-                <article class="post_unit" id="popularUnit"  style="margin-bottom : 5rem !important;">
+                <article class="post_unit" id="viewsUnit"  style="margin-bottom : 5rem !important;">
 				    <div class="unit_header">
 				        <label style="font-weight: 600; margin-bottom: 1.25rem;">인기 글 리스트</label>
 				    </div>
-				    <div class="thumb_type01" id ="popularUnitList">
+				    <div class="thumb_type01" id ="viewsUnitList">
 				       <!-- post item-->
 				       <div class = "bx-wrapper" style="max-width:1000px;">
 				            <div class="bx-viewport" aria-live="polite">
-				                <ul id="popularList">
+				                <ul id="viewsList">
+				                 <!--Sample Contents Area-->
 				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;">
 				                        <a href="#" class="cover">
 				                            <span class="in">

@@ -128,14 +128,7 @@ function signUp(){
             	alert(msg);
             }
 		}, function(res){ //error return
-              var msg = "";
-              if(res.responseJSON != null){
-                   msg = res.responseJSON.msg;
-              }else{
-                   msg = res.statusText;
-              }
-
-               alert(msg);
+             commonUtil.failMsg(res);
         });
 
 	}

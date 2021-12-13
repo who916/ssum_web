@@ -1,4 +1,4 @@
-package com.kyobo.dev.ssum.web;
+package com.kyobo.dev.ssum.web.Controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,6 +15,9 @@ public class CommonController {
 
 	 @RequestMapping(value= {"/","/index.do"})
 	 public String main() {
+
+		 //글 list 가져오기
+
 		 return "/index";
 	 }
 	 

@@ -1,4 +1,4 @@
-package com.kyobo.dev.ssum.web;
+package com.kyobo.dev.ssum.web.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
