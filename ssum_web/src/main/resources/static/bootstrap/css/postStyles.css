@@ -337,8 +337,7 @@ bx-controls-direction a:link {
      font-weight : 700;
      border-bottom : 2px solid #007189;
      margin-bottom : -1px;
-     z-index: 1;
-
+     z-index: 10;
 }
 
 .dropdown-wrapper {
@@ -361,4 +360,38 @@ bx-controls-direction a:link {
 .MuiButton-label {
     width : 100%;
     align-items : inherit;
+}
+
+.pagination-wrapper{
+    display : flex;
+    padding : 0.25rem;
+    align-items : center;
+}
+
+.pagination-wrapper .pagination{
+    display : flex;
+    justify-content:center;
+    align-items:center;
+    width :2rem;
+    height : 2rem;
+    margin : 0 0 0.25rem;
+    color : #818181a6;
+    font-family:"NotoSan";
+    font-size : 1rem;
+}
+
+.pagination-wrapper .pagination .select{
+    font-weight:700;
+    color : white;
+    background-color:#007189;
+}
+
+.pagination-wrapper .next-page-icon-wrapper{
+    display : flex;
+    align-items:center;
+    margin : 0 0.625rem;
+    width : 3.5625rem;
+    font-family:"NotoSan";
+    color : #818181a6;
+    font-size : 0.85rem;
 }
