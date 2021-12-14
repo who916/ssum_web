@@ -4893,6 +4893,11 @@ textarea.form-control-lg {
   list-style: none;
 }
 
+.custom-page-link{
+ font-family:"NotoSan";
+ font-size : 1rem;
+}
+
 .page-link {
   position: relative;
   display: block;
@@ -4948,6 +4953,9 @@ textarea.form-control-lg {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
 }
+
+
+
 .badge {
   display: inline-block;
   padding: 0.35em 0.65em;
@@ -11511,6 +11519,14 @@ header.pagehead:before {
   text-align: center;
 }
 
+.episode-item{
+    font-weight:700;
+    padding-bottom:0.625rem;
+    border-bottom:1px solid #dedede;
+    text-indent :2rem;
+    font-family:"NotoSan";
+}
+
 .post-preview > a {
   color: #212529;
 }
@@ -11523,6 +11539,7 @@ header.pagehead:before {
   margin-top: 1.875rem;
   margin-bottom: 0.625rem;
 }
+
 .post-preview > a > .post-subtitle {
   font-weight: 300;
   margin-bottom: 0.625rem;
@@ -11550,3 +11567,4 @@ header.pagehead:before {
     width :100%;
     display:-webkit-inline-box;
 }
+
