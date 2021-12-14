@@ -135,7 +135,7 @@ commonUtil.prototype.failMsg = function(res){
 
 commonUtil.prototype.sendAjax = function(sendType, url, header, params, successCallback, errorCallback){
 
-        var sendUrl = "http://13.209.61.51:8080/"+url;
+        var sendUrl = url;
         //var sendUrl = "http://192.168.1.202:8080/"+url;
 
         $.ajax({

@@ -55,7 +55,7 @@ function setPostListInfo(res, type){
 }
 
 function getPostListInfo(type){
-    var url = "v1/board/post/" + type;
+    var url = "http://13.209.61.51:8080/v1/board/post/" + type;
 
     commonUtil.sendAjax("GET",url,"", ""
                 , function(res){setPostListInfo(res, type);}

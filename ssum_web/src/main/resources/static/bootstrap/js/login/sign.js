@@ -118,7 +118,7 @@ function signUp(){
 		   ,name : $("#name").val()
 		}
 
-		commonUtil.sendAjax("POST","v1/signup","", params, function(res){
+		commonUtil.sendAjax("POST","http://13.209.61.51:8080/v1/signup","", params, function(res){
 		    if(res.success){ //success return
             	alert('가입이 완료되었습니다. 로그인 화면으로 이동합니다.');
             	commonUtil.redirect("/login");

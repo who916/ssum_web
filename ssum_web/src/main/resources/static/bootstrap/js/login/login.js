@@ -83,7 +83,7 @@ function login(){
 		  password : $("#password").val()
 		}
 
-		commonUtil.sendAjax("POST", "v1/signin","",params
+		commonUtil.sendAjax("POST", "http://13.209.61.51:8080/v1/signin","",params
 		, function(res){setTokens(res);}
 		, function(res){
 		      commonUtil.failMsg(res);
