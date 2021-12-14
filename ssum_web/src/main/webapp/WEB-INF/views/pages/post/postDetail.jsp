@@ -78,18 +78,42 @@
                     <div class="article-book-wrapper">
                            <span class="article-tab-container">
                                  <!-- 탭 -->
-                               <div class="text-tab-wrapper">
-                                   <div class="text-tab current">작품 회차</div>
-                                   <div class="text-tab">작가공지</div>
+                               <div class="nav-tabs" style="display:flex;border:none;">
+                                   <div class="nav-link" style="border:none;">작품 회차</div>
+                                   <div class="nav-link" style="border:none;">작가공지</div>
                                </div>
                                <!--order by-->
                            </span>
                     <!--회차목록-->
-                        <ul class="episode-list" style="list-style-type: none;">
-                         <li class="episode-list-item">1.퇴근까지 2시간15분 첫번째 에피소드</li>
-                         <li class="episode-list-item">2.퇴근까지 2시간15분 두번째 에피소드</li>
-                         <li class="episode-list-item">3.퇴근까지 2시간15분 세번째 에피소드</li>
-                       </ul>
+                         <div class="post-preview">
+                            <a href="#">
+                                <div class="post-title episode-item" style="margin-top:0.625rem;font-size:1rem;">
+                                     <td>1. 퇴근까지 2시간15분 첫번째 에피소드</td>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="post-title episode-item" style="margin-top:0.625rem;font-size:1rem;">
+                                     2. 퇴근까지 2시간15분 두번째 에피소드
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="post-title episode-item" style="margin-top:0.625rem;font-size:1rem;">
+                                     3. 퇴근까지 2시간15분 세번째 에피소드
+                                </div>
+                            </a>
+                         </div>
+                       <!-- Page 처리 -->
+                       <div style="display:flex; justify-content:center;">
+                        <div class="pagination">
+                            <div class="page-link custom-page-link">1</div>
+                            <div class="page-link custom-page-link">2</div>
+                            <div class="page-link custom-page-link">3</div>
+                            <div class="page-link custom-page-link">4</div>
+                            <div class="page-link custom-page-link">5</div>
+                            <div class="page-link custom-page-link">6</div>
+                        <div class="page-link custom-page-link"><div>다음</div></div>
+                        </div>
+                       </div>
                     </div>
                  </div>
 				</div>
