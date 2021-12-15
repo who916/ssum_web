@@ -4,29 +4,9 @@ var commonUtil;
 function goPostDetailPage(Obj){
 
     var postId = Obj.value;
-    var url = "http://192.168.1.204:8080/post/sendPostInfo.do";
+    var url = "http://192.168.1.204:8080/post/postDetail.do?postId="+postId;
 
-    var header = {"Content-Type": "application/json"
-        	         ,"Accept": "application/json"};
-
-    $.ajax({
-    			type :'POST',
-    		    url :url,
-    		    dataType: 'text',
-    		    header: header,
-    		    data : { postId :postId},
-    		    success: function(res){
-    		    	commonUtil.redirect("/post/postDetail.do");
-
-    		    },
-
-    		    error : function(XMLHttpRequest, textStatus, errorThrown){
-    		    		commonUtil.failMsg(XMLHttpRequest);
-
-    		    }
-
-    		});
-
+    commonUtil.redirect(url);
 
 }
 
