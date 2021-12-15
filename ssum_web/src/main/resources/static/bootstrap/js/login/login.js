@@ -54,7 +54,7 @@ function validationChk(){
 }
 
 function setTokens(res){
-     if(res.success){
+     if(res.code == '0'){
 		   alert('로그인에 성공하였습니다');
 
 		   //token처리
@@ -79,11 +79,14 @@ function login(){
 	if(validationChk()){//입력값 체크 후 로그인 로직 처리
 
 		var params = {
-		  id : $("#id").val(),
+		  email : $("#id").val(),
 		  password : $("#password").val()
 		}
 
-		commonUtil.sendAjax("POST", "http://13.209.61.51:8080/v1/signin","",params
+		var header = {"Content-Type": "application/json"
+		              ,"Accept": "application/json"};
+
+		commonUtil.sendAjax("POST", "http://13.209.61.51:8080/v1/login",header,params
 		, function(res){setTokens(res);}
 		, function(res){
 		      commonUtil.failMsg(res);

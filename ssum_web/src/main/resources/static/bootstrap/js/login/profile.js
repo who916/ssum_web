@@ -6,7 +6,7 @@ var commonUtil;
 
 function setProfileInfo(result){
 
-    if(result.success && result.data != null){
+    if(result.code=='0' && result.data != null){
        name = result.data.name;
         phone = result.data.phone;
         profileImageUrl = result.data.profileImageUrl;
@@ -21,7 +21,7 @@ function setProfileInfo(result){
             $("#profilePhone").append(phone);
         }
         //img세팅
-        if(profileImageUrl != null){
+        if(profileImageUrl != null && profileImageUrl != '' && profileImageUrl != 'undefined'){
             document.getElementById("profileImg").src = profileImageUrl;
         }
     }else{

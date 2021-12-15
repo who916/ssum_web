@@ -33,7 +33,7 @@
 				            <div class="bx-viewport" aria-live="polite">
 				                <ul id="likesList">
 				                  <!--Sample Contents Area-->
-                                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;">
+                                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;" value="1" onClick='goPostDetailPage(this);'>
 				                        <a href="#" class="cover">
 				                            <span class="in">
 				                                <img src="/bootstrap/assets/img/book/suggest/readbook-1.png" alt="표지1">
@@ -86,7 +86,7 @@
 				            <div class="bx-viewport" aria-live="polite">
 				                <ul id="newList">
 				                 <!--Sample Contents Area-->
-				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;">
+				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;" value="2" onClick='goPostDetailPage(this);'>
 				                        <a href="#" class="cover">
 				                            <span class="in">
 				                                <img src="/bootstrap/assets/img/book/suggest/readbook-1.png" alt="표지1">
@@ -139,7 +139,7 @@
 				            <div class="bx-viewport" aria-live="polite">
 				                <ul id="viewsList">
 				                 <!--Sample Contents Area-->
-				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;">
+				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;" value="3" onClick='goPostDetailPage(this);'>
 				                        <a href="#" class="cover">
 				                            <span class="in">
 				                                <img src="/bootstrap/assets/img/book/suggest/readbook-1.png" alt="표지1">

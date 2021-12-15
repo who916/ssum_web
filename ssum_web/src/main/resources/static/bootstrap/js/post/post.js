@@ -1,5 +1,37 @@
 var commonUtil;
 
+
+function goPostDetailPage(Obj){
+
+    var postId = Obj.value;
+    var url = "http://192.168.1.204:8080/post/sendPostInfo.do";
+
+    var header = {"Content-Type": "application/json"
+        	         ,"Accept": "application/json"};
+
+    $.ajax({
+    			type :'POST',
+    		    url :url,
+    		    dataType: 'text',
+    		    header: header,
+    		    data : { postId :postId},
+    		    success: function(res){
+    		    	commonUtil.redirect("/post/postDetail.do");
+
+    		    },
+
+    		    error : function(XMLHttpRequest, textStatus, errorThrown){
+    		    		commonUtil.failMsg(XMLHttpRequest);
+
+    		    }
+
+    		});
+
+
+}
+
+
+/* 메인화면 작품목록 가져오기 */
 function setPostListInfo(res, type){
 
   var title = ""; //작품제목
@@ -10,7 +42,7 @@ function setPostListInfo(res, type){
   var likes =""; //좋아요수
   var views =""; //조회수
 
-  if(res.success){
+  if(res.code == '0'){
     if(res.list != null){
 
 
@@ -40,7 +72,7 @@ function setPostListInfo(res, type){
                 /* 화면 구성 태그
                 * 줄 바꿈 할 경우 스타일이 의도대로 적용되지 않으므로 한줄로 구현
                 */
-                $(id).append("<li class='item' style='border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;' value='"+postId+"'><a href='#' class='cover'><span class='in'><img src='"+thumbnailUrl+"' alt='표지1'></span></a><div class='infoBox'><a href='#' class='tit'>"+title+"</a><div class='sub01' style='overflow-wrap:break-word;'><span class='author'>"+author+"</span></div><div class ='sub02'><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'/>"+likes+"</span><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'/>"+views+"</span></div></div></li>");
+                $(id).append("<li class='item' style='border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;' value='"+postId+"' onClick='goPostDetailPage(this);'><a class='cover'><span class='in'><img src='"+thumbnailUrl+"' alt='표지1'></span></a><div class='infoBox'><a class='tit'>"+title+"</a><div class='sub01' style='overflow-wrap:break-word;'><span class='author'>"+author+"</span></div><div class ='sub02'><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'/>"+likes+"</span><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'/>"+views+"</span></div></div></li>");
 
           }
 
