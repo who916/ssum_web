@@ -3,16 +3,10 @@ var commonUtil;
 
 function goPostDetailPage(Obj){
 
-    if(commonUtil.chkLogin()){
+    var postId = Obj.value;
+    var url = "http://192.168.1.204:8080/post/postDetail.do?postId="+postId;
 
-        var postId = Obj.value;
-        var url = "http://192.168.1.204:8080/post/postDetail.do?postId="+postId;
-
-        commonUtil.redirect(url);
-    }else{
-        alert("유효하지 않은 접근 입니다. 로그인 후 다시 시도해 주세요");
-        commonUtil.redirect("/login");
-    }
+    commonUtil.redirect(url);
 
 }
 
@@ -77,7 +71,7 @@ function getPostListInfo(type){
 
     commonUtil.sendAjax("GET",url,"", ""
                 , function(res){setPostListInfo(res, type);}
-                , function(res){ commonUtil.failFunc(res);});
+                , function(res){ commonUtil.failMsg(res);});
 
 }
 

@@ -177,14 +177,6 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
 	};
 
 
- commonUtil.prototype.logout = function(redirectUrl){
-       localStorage.removeItem("accToken");
-       localStorage.removeItem("refToken");
-
-       location.replace(redirectUrl);
- };
-
-
  
  commonUtil.prototype.refreshToken = function(){
     var refreshToken = localStorage.getItem("refToken");
@@ -196,9 +188,9 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
     }
 
     var url = "http://13.209.61.51:8080/v1/refresh/token";
-    var params = { refreshToken : refreshToken };
+    var params = { refreshTokenDto : refreshToken };
 
-    commonUtil.sendAjax("POST", url, "", params
+    commonUtil.sendAjax = ("POST", url, "", params
                            , function(res){
                               if(res.code =='0'){
                                 //token 갱신
@@ -213,40 +205,10 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
                                }
                            }
                            ,  function(res){
-                                alert("로그인 정보가 만료되었습니다. 다시 로그인 해주세요");
-                                commonUtil.logout("/login")
+                                var msg  = commonUtil.rtnMsg(res.code);
+                           		alert(msg);
                            });
 
- };
-
-
- commonUtil.prototype.failFunc = function(res){
-    var code = "";
-    if(res.responseJSON != null){
-       code = res.responseJSON.code;
-    }else{
-       code = res.code;
-    }
-
-    if(code == '-1008'){
-        commonUtil.refreshToken();
-    }else{
-        commonUtil.failMsg(res);
-    }
-
- };
-
-  commonUtil.prototype.chkLogin = function(){
-    var isLogin  = true;
-    var accToken = localStorage.getItem("accToken");
-
-    if(accToken == null || accToken == '' || accToken =='undefined' ){
-        isLogin = false;
-    }
-
-    return isLogin;
-
-  };
-
+ }
 
 
