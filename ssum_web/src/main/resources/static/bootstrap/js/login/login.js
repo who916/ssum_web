@@ -66,10 +66,9 @@ function setTokens(res){
 
 		   commonUtil.redirect("/");
 
-		   }else{
-		    var msg  = commonUtil.rtnMsg(res.code);
-		    alert(msg);
-		   }
+		}else{
+		    commonUtil.failFunc(res);
+		}
 
 }
 

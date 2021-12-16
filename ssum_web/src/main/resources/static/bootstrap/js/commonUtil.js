@@ -112,6 +112,8 @@ commonUtil.prototype.rtnMsg = function(res){
 		  msg ="해당 자원의 소유자가 아닙니다.";
 		case "-1007":
           msg= "요청한 자원이 존재 하지 않습니다.";
+        case "-1008":
+        msg= "요청한 accessToken이 만료되었습니다.";
         case "-9999":
           msg ="알수 없는 오류가 발생하였습니다.";
         default :
@@ -133,10 +135,27 @@ commonUtil.prototype.failMsg = function(res){
        alert(msg);
 }
 
+commonUtil.prototype.failFunc = function(res){
+    var code = "";
+    if(res.responseJSON != null){
+       result = res.responseJSON.code;
+    }else{
+        result = res.code
+    }
+
+    if(code == '-1008'){
+       //acckessToken Refresh
+       commonUtil.refreshToken();
+     }else{
+         commonUtil.failMsg(res);
+     }
+}
+
 commonUtil.prototype.sendAjax = function(sendType, url, header, params, successCallback, errorCallback){
 
         var sendUrl = url;
         //var sendUrl = "http://192.168.1.202:8080/"+url;
+
 
         $.ajax({
 			type :sendType,
@@ -169,6 +188,13 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
  
  commonUtil.prototype.refreshToken = function(){
     var refreshToken = localStorage.getItem("refToken");
+
+    if(refreshToken == null || refreshToken == 'undefined' || refreshToken == ''){
+       alert("로그인 정보가 만료되었습니다. 재 로그인 후 사용바랍니다.");
+       commonUtil.redirect("/login");
+       return;
+    }
+
     var url = "http://13.209.61.51:8080/v1/refresh/token";
     var params = { refreshToken : refreshToken };
 
