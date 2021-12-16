@@ -73,7 +73,10 @@ postUtil.prototype.setPostListInfo = function(res, type, pageYn){
         for(var i=1; i<=pageNum; i++){
             $(pageId).append("<div class='page-link custom-page-link'>"+i+"</div>");
         }
-        $(pageId).append("<div class='page-link custom-page-link'><div>다음</div></div>")
+
+        if(pageNum > 10){
+            $(pageId).append("<div class='page-link custom-page-link'><div>다음</div></div>")
+        }
     }
 
 };
