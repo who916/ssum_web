@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ReadbookController {
 	 @RequestMapping("/novel.do")
 	 public String getNovelPage() {
-		 return "/pages/read-book/novel";
+		 return "/pages/read-book/novelMain";
 	 }
 	 
 }
