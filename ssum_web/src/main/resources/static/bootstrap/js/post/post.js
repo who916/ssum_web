@@ -71,7 +71,7 @@ function getPostListInfo(type){
 
     commonUtil.sendAjax("GET",url,"", ""
                 , function(res){setPostListInfo(res, type);}
-                , function(res){ commonUtil.failMsg(res);});
+                , function(res){ commonUtil.failFunc(res);});
 
 }
 
