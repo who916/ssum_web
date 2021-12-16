@@ -56,7 +56,7 @@ if(accToken == null){
                         }
 
                     }
-                    , function(res){ commonUtil.failMsg(res);});
+                    , function(res){ commonUtil.failFunc(res);});
     }
 }
 
