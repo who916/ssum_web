@@ -76,14 +76,14 @@ commonUtil.prototype.isId = function(asValue) {
 };
 
 commonUtil.prototype.isKorean = function(asValue) {
-	var regExp =/[ㄱ-힣]/;
+	var regExp =/^[가-힣]*$/;
 
 	return regExp.test(asValue);
 };
 
 
 commonUtil.prototype.isNum= function(asValue) {
-	var regExp = /[0-9]/;
+	var regExp = /^[0-9]*$/;
 
 	return regExp.test(asValue);
 };
@@ -133,22 +133,23 @@ commonUtil.prototype.failMsg = function(res){
        }
 
        alert(msg);
+       return false;
 }
 
 commonUtil.prototype.failFunc = function(res){
     var code = "";
     if(res.responseJSON != null){
        result = res.responseJSON.code;
-    }else{
-        result = res.code
-    }
-
-    if(code == '-1008'){
-       //acckessToken Refresh
-       commonUtil.refreshToken();
-     }else{
+       if(code == '-1008'){
+         //acckessToken Refresh
+         commonUtil.refreshToken();
+       }else{
          commonUtil.failMsg(res);
-     }
+       }
+
+    }else{
+        commonUtil.failMsg(res);
+    }
 }
 
 commonUtil.prototype.sendAjax = function(sendType, url, header, params, successCallback, errorCallback){
@@ -212,8 +213,9 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
                                }
                            }
                            ,  function(res){
-                                var msg  = commonUtil.rtnMsg(res.code);
-                           		alert(msg);
+                                 alert("로그인 정보가 만료되었습니다. 재 로그인 후 사용바랍니다.");
+                                 commonUtil.logout("/login");
+                                 return;
                            });
 
  };

@@ -80,7 +80,7 @@
 							</div>
 							<div class="form-floating">
 								<input class="form-control" id="name" type="text"
-									placeholder="이름을 입력하세요" data-sb-validations="required" data-sb-type="korean" /> <label
+									placeholder="이름을 입력하세요" data-sb-validations="required" data-sb-type="name" /> <label
 									for="name" style="font-size: 1rem;">이름</label>
 								<div class="invalid-feedback" id="validatename"
 									data-sb-feedback="name:required">이름을 입력하세요.</div>

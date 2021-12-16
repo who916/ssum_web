@@ -33,7 +33,7 @@
 	<!-- Core theme JS-->
 	<script src="/bootstrap/js/scripts.js"></script>
 	<!-- login js -->
-	<script type="text/javascript" src="/bootstrap/js/login/profile.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/login/profileEdit.js"></script>
 	<script type="text/javascript" src="/bootstrap/js/commonUtil.js"></script>
 	<!-- Navigation-->
 	<%@ include file="/WEB-INF/views/layout/gnb.jsp"%>
@@ -44,32 +44,43 @@
 			<div class="row gx-4 gx-lg-5 justify-content-center">
 				<div class="col-md-10 col-lg-8 col-xl-7">
 					<div class="my-5" style="justify-content: center; display: grid;">
-					   <div style ="display: inline-block; margin-bottom:2rem;" >
-						<label style="font-weight: 600; margin-bottom: 1.25rem;">프로필</label>
-						<a href="/author/registration.do" style="margin-left:25rem;">
-						    <button class="btn btn-primary normal auth text-uppercase"
-						    style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;">작가 신청 바로가기</button></a>
+					    <div style ="display: inline-block; margin-bottom:2rem;" >
+						<label style="font-weight: 600; margin-bottom: 1.25rem;">프로필 수정</label>
                         </div>
-						<form id="ProfileForm" style="margin-bottom: 0.8rem;" method="POST" action="/login/profileEdit.do">
+						<div id="profileEditForm" style="margin-bottom: 0.8rem;">
 						    <div style="display:inline-flex; border:1px solid #ced4da; padding:3rem 3rem; width:100%;">
 						       <!--이미지--->
 						       <div style="display:block;">
                                   <img src="/bootstrap/assets/img/icon/icon-avatar.png"
                                    style="width:8rem; height:8rem; margin-bottom:1rem; display:list-item;" id="profileImg"></img>
+                                  <button class="btn btn-outline-primary auth normal" style="width: 8rem;"> 프로필 이미지 등록하기
+                                  </button>
 						       </div>
 						       <!--정보--->
 						        <div style="margin-left:10rem;">
-						            <div style="display:inherit; margin-bottom:1rem;">
-						             <label style="font-weight:600; font-size:1rem;">이름</label>
-						             <span class="span-info" id="profileNm"></span>
-						             </div>
-						             <div style="display:inherit; margin-bottom:1rem;">
-                                         <label style="font-weight:600; font-size:1rem;">휴대전화 번호</label>
-                                         <span class="span-info" id="profilePhone"></span>
-                                    </div>
+				                        <div class="form-floating">
+                							<input class="form-control" id="profileNm" type="text"
+                							  placeholder="이름을 입력하세요" data-sb-validations="required" data-sb-type="name"/>
+                							  <label for="name" style="font-size: 1rem; font-weight:600; color:#21529">이름</label>
+                							<div class="invalid-feedback" id="validateprofileNm"
+                                              data-sb-feedback="name:required">이름을 입력하세요.</div>
+                                            <div class="invalid-feedback" id="validateInputprofileNm"
+                                             data-sb-feedback="name:required">이름은 한글만 입력 가능합니다.</div>
+                						</div>
+                                        <div class="form-floating">
+                							<input class="form-control" id="profilePhone" type="text"
+                							  placeholder="휴대전화 번호를 입력하세요" data-sb-validations="required" data-sb-type="number" />
+                							  <label for="name" style="font-size: 1rem; font-weight:600; color:#21529;">휴대전화 번호</label>
+                                            <div class="form-floating" style="margin-bottom: 10px;">
+										    <div class="invalid-feedback" id="validateprofilePhone"
+											    data-sb-feedback="cell:required">휴대전화 번호를 입력하세요.</div>
+										    <div class="invalid-feedback" id="validateInputprofilePhone"
+											    data-sb-feedback="cell:required">휴대전화는 숫자만 입력 가능합니다.</div>
+									</div>
+                						</div>
                                      <div style="display:inherit; margin-bottom:1rem;">
                                        <label style="font-weight:600; font-size:1rem;">등급</label>
-                                       <span class="span-info" id="profilePhone">일반회원</span>
+                                       <span class="span-info" id="profileLevel">일반회원</span>
                                      </div>
                                      <div style="display:inline-grid; margin-bottom:1rem;">
                                          <label style="font-weight:600; font-size:1rem; margin-bottom:0.5rem;">관심장르</label>
@@ -79,12 +90,12 @@
 						        </div>
 						    </div>
 						    <div style="border-top: 1px solid #ced4da; margin-top : 2rem;"/>
-                                <div style="justify-content:flex-end; display:flex; margin-top:1rem;">
-                                    <button class="btn btn-primary normal auth" style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;"
-                                         id="editProfileButton"><a href="/login/profileEdit.do" style="color:white;">회원 정보 수정</a></button>
-			                    </div>
+						        <div style="justify-content:flex-end; display:flex; margin-top:1rem;">
+                                     <button class="btn btn-primary normal auth"  style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;"
+                                       id="saveButton" onClick="sendProfileEditInfo();">저장 하기</button>
+			                     </div>
                             </div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>

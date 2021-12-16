@@ -30,7 +30,8 @@ function setProfileInfo(result){
     }
 }
 
-function getProfileInfo(accToken){
+function getProfileInfo(){
+            var accToken = localStorage.getItem("accToken");
             var header = {
                 "X-AUTH-TOKEN" : accToken
             }
@@ -42,21 +43,19 @@ function getProfileInfo(accToken){
 
 }
 
-
 function init(){
     //로그인 체크
-    var accToken =  localStorage.getItem("accToken");
-    if(accToken == null){
+    if(commonUtil.chkLogin()){
+        getProfileInfo();
+    }else{
         alert("유효하지 않은 접근 입니다. 로그인 후 다시 시도해 주세요");
         commonUtil.redirect("/login");
-    }else{
-       getProfileInfo(accToken);
+
     }
 }
-
-
 
 $(document).ready(function () {
     commonUtil = commonUtil.prototype;
 	init();
+
 });
