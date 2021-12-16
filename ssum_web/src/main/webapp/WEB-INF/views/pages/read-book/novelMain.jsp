@@ -50,18 +50,11 @@
 		<div class="row gx-4 gx-lg-5 justify-content-center">
 			<div class="col-md-10 col-lg-8 col-xl-7">
 				<!-- Pager-->
-				<div  id="novelList">
+				<div id="novelList">
 				</div>
                 <div style="display:flex; justify-content:center; margin-bottom :2rem;">
-                   <div class="pagination">
-                      <div class="page-link custom-page-link">1</div>
-                      <div class="page-link custom-page-link">2</div>
-                      <div class="page-link custom-page-link">3</div>
-                      <div class="page-link custom-page-link">4</div>
-                      <div class="page-link custom-page-link">5</div>
-                      <div class="page-link custom-page-link">6</div>
-                      <div class="page-link custom-page-link"><div>다음</div></div>
-                    </div>
+                   <div class="pagination" id="novelPaging">
+                   </div>
 			</div>
 		</div>
 	</div>

@@ -15,8 +15,12 @@ postUtil.prototype.goPostDetailPage = function(postId){
    }
 };
 
+
+postUtil.prototype.setPagination = function(res){
+}
+
 /*작품목록 가져오기 */
-postUtil.prototype.setPostListInfo = function(res, type){
+postUtil.prototype.setPostListInfo = function(res, type, pageYn){
   var title = ""; //작품제목
   var author  = ""; //작가명
   var postId =""; //작품 id
@@ -62,6 +66,15 @@ postUtil.prototype.setPostListInfo = function(res, type){
 
          }
 
+    //page처리
+    if(pageYn){
+        var pageNum = res.totalPages;
+        var pageId =  "#"+type +"Paging";
+        for(var i=1; i<=pageNum; i++){
+            $(pageId).append("<div class='page-link custom-page-link'>"+i+"</div>");
+        }
+        $(pageId).append("<div class='page-link custom-page-link'><div>다음</div></div>")
+    }
 
 };
 
