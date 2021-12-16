@@ -72,7 +72,7 @@
 								<ul class="list-inline text-center" style="font-size: 0.8rem;">
 									<li class="list-inline-item"><a href="#">아이디 찾기</a></li>
 									<li class="list-inline-item"><a href="#">비밀번호 찾기</a></li>
-									<li class="list-inline-item"><a href="/login/sign.do">회원가입</a></li>
+									<li class="list-inline-item"><a href="/login/join.do">회원가입</a></li>
 								</ul>
 							</div>
 						</div>
