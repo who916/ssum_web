@@ -16,8 +16,9 @@
 	<!-- Core theme JS-->
 	<script src="/bootstrap/js/scripts.js"></script>
 	<!-- JS -->
-	<script type="text/javascript" src="/bootstrap/js/commonUtil.js"></script>
-	<script type="text/javascript" src="/bootstrap/js/post/post.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/utils/commonUtil.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/utils/postUtil.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/mainPage.js"></script>
 	<!-- Contents-->
 	 <div class="container px-4 px-lg-5">
            <div class="row gx-4 gx-lg-5 justify-content-center">
