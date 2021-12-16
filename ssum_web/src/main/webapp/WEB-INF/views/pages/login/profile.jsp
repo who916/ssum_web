@@ -50,7 +50,7 @@
 						    <button class="btn btn-primary normal auth text-uppercase"
 						    style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;">작가 신청 바로가기</button></a>
                         </div>
-						<form id="ProfileForm" style="margin-bottom: 0.8rem;" method="POST" action="/login/profileEdit.do">
+						<div id="ProfileForm" style="margin-bottom: 0.8rem;" method="POST" action="/login/profileEdit.do">
 						    <div style="display:inline-flex; border:1px solid #ced4da; padding:3rem 3rem; width:100%;">
 						       <!--이미지--->
 						       <div style="display:block;">
@@ -84,7 +84,7 @@
                                          id="editProfileButton"><a href="/login/profileEdit.do" style="color:white;">회원 정보 수정</a></button>
 			                    </div>
                             </div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
