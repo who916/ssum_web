@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/readbook")
+@RequestMapping("/read-book")
 public class ReadbookController {
-	 @RequestMapping("/serial.do")
-	 public String getSerialPage() {
-		 return "/pages/readbook/serial";
+	 @RequestMapping("/novel.do")
+	 public String getNovelPage() {
+		 return "/pages/read-book/novel";
 	 }
 	 
 }

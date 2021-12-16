@@ -33,7 +33,7 @@
 	<!-- Core theme JS-->
 	<script src="/bootstrap/js/scripts.js"></script>
 	<!-- import js -->
-	<script type="text/javascript" src="/bootstrap/js/login/sign.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/login/join.js"></script>
 	<script type="text/javascript" src="/bootstrap/js/utils/commonUtil.js"></script>
 	<!-- Navigation-->
 	<%@ include file="/WEB-INF/views/layout/gnb.jsp"%>

@@ -27,14 +27,14 @@ public class LoginController {
 	}
 	 
 	
-	 @RequestMapping("/sign.do")
-	 public String getSignPage() {
-		 return "/pages/login/signMain";
+	 @RequestMapping("/join.do")
+	 public String getJoinPage() {
+		 return "/pages/login/joinMain";
 	 }
 	 
 	 @RequestMapping("/default.do")
-	 public String getSignDefaultPage() {
-		 return "/pages/login/signDefault";
+	 public String getJoinDefaultPage() {
+		 return "/pages/login/join";
 	 }
 	 
 	

@@ -24,6 +24,9 @@
 <link href="/bootstrap/css/styles.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- js -->
+    <script type="text/javascript" src="/bootstrap/js/utils/commonUtil.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/utils/postUtil.js"></script>
 	<!-- Navigation-->
 	<%@ include file="/WEB-INF/views/layout/gnb.jsp"%>
 	<!-- Page Header-->
@@ -33,8 +36,7 @@
 			<div class="row gx-4 gx-lg-5 justify-content-center">
 				<div class="col-md-10 col-lg-8 col-xl-7">
 					<div class="site-heading">
-						<h1>Clean Blog</h1>
-						<span class="subheading">A Blog Theme by Start Bootstrap</span>
+						<h1>소설</h1>
 					</div>
 				</div>
 			</div>
@@ -43,18 +45,38 @@
 	<!-- Main Content-->
 	<div class="container px-4 px-lg-5">
 		<div class="row gx-4 gx-lg-5 justify-content-center">
-			<div class="col-md-10 col-lg-8 col-xl-7">
+			<div class="col-md-10 col-lg-8 col-xl-7" id="novelList">
 				<!-- Post preview-->
-				<div class="post-preview">
-					<a href="../../post.html">
-						<h2 class="post-title">Man must explore, and this is
+				<div class="post-preview" style="display:flex; margin-left:1rem;" id="postId">
+				    <img src="/bootstrap/assets/img/book/readBook2.png" width="200px" height="250px"/>
+					  <a href="../../post.html">
+					   <div style="display:block; margin-left :1rem;">
+					   <div>
+					    <!--title-->
+						<h2 class="post-title" style="margin-top:1rem;" id="title">Man must explore, and this is
 							exploration at its greatest</h2>
-						<h3 class="post-subtitle">Problems look mighty small from 150
-							miles up</h3>
-					</a>
-					<p class="post-meta">
-						Posted by <a href="#!">Start Bootstrap</a> on September 24, 2021
-					</p>
+					    </a>
+					   </div>
+					   <!--작가-->
+					   <div>
+                        <p class="post-meta" style="margin:0; font-size:1rem;" id="author">
+                            Posted by <a href="#!">Start Bootstrap</a></p>
+                       </div>
+                       <!--소개 -->
+                       <div>
+                        <p style="margin:0; margin-bottom:1.5rem; margin-top:1rem; font-family:'NotoSan';" id="content">소개소개</p>
+                       </div>
+                          <div style="display:inline-block; justify-content : space-around;">
+                              <span id="likes" style="font-size:0.8rem; letter-spacing:1px;">
+                                  <img src="/bootstrap/assets/img/icon/icon-star.png" width="15" height="15" alt="관심" style="padding-right:0.25rem;">5
+                               </span>
+                               <span id="views" style="font-size:0.8rem; letter-spacing:1px;">
+                                   <img src="/bootstrap/assets/img/icon/icon-eye.png" width="20" height="20" alt="HIT" style="padding-right:0.25rem;">4
+                               </span>
+                               <span style='color:#dee2e6;'>|</span>
+                               <span id ="boardName" style="font-size:0.8rem; letter-spacing:1px;"></span>
+                           </div>
+                      </div>
 				</div>
 				<!-- Divider-->
 				<hr class="my-4" />
@@ -93,13 +115,20 @@
 						Posted by <a href="#!">Start Bootstrap</a> on July 8, 2021
 					</p>
 				</div>
+				<!--End of ListArea -->
 				<!-- Divider-->
 				<hr class="my-4" />
 				<!-- Pager-->
-				<div class="d-flex justify-content-end mb-4">
-					<a class="btn btn-primary text-uppercase" href="#!">Older Posts
-						â</a>
-				</div>
+                <div style="display:flex; justify-content:center; margin-bottom :2rem;">
+                   <div class="pagination">
+                      <div class="page-link custom-page-link">1</div>
+                      <div class="page-link custom-page-link">2</div>
+                      <div class="page-link custom-page-link">3</div>
+                      <div class="page-link custom-page-link">4</div>
+                      <div class="page-link custom-page-link">5</div>
+                      <div class="page-link custom-page-link">6</div>
+                      <div class="page-link custom-page-link"><div>다음</div></div>
+                    </div>
 			</div>
 		</div>
 	</div>
