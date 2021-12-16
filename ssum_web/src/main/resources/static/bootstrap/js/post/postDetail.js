@@ -1,6 +1,5 @@
 var commonUtil;
 var postId = ""; //작품 id
-
 var title = ""; //작품제목
 var author  = ""; //작가명
 var boardId ="" ; //게시판 id
@@ -8,6 +7,29 @@ var thumbnailUrl=""; //작품 썸네일
 var likes =""; //좋아요수
 var views =""; //조회수
 var content = ""//설명
+
+
+function renderingPage(info){
+        title = info.title;
+        author = info.author;
+        boardId = info.board.boardId;
+        boardName = info.board.name;
+        thumbnailUrl = info.thumbnailUrl;
+        likes = info.likes;
+        views = info.views;
+        content = info.content;
+
+        //화면세팅
+        $("#title").text(title);
+        $("#author").text(author);
+        $("#likes").html("<img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'>"+likes);
+        $("#views").html("<img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views);
+        $("#boardName").html(boardName);
+        $("#content").html(content);
+
+        //
+        document.getElementById("thumbnailImg").src = thumbnailUrl;
+}
 
 
 function getPostDetailInfo(){
@@ -26,24 +48,7 @@ if(accToken == null){
                     , function(res){ //정보세팅
                         if(res.code == '0'){
                             if(res.data != null){
-                               title = res.data.title;
-                               author = res.data.author;
-                               boardId = res.data.board.boardId;
-                               boardName = res.data.board.name;
-                               thumbnailUrl = res.data.thumbnailUrl;
-                               likes = res.data.likes;
-                               views = res.data.views;
-                               content = res.data.content;
-
-                               //화면세팅
-                               $("#title").text(title);
-                               $("#author").text(author);
-                               $("#likes").html("<img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'>"+likes);
-                               $("#views").html("<img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views);
-                               $("#content").text(content);
-
-                               //
-                               document.getElementById("thumbnailImg").src = thumbnailUrl;
+                               renderingPage(res.data);
                             }
                         }else{
                             var msg  = commonUtil.rtnMsg("-1004"); //통신 오류
@@ -61,8 +66,23 @@ function init(){
 
     if(postId != null && postId != '' && postId != 'undefined'){
         getPostDetailInfo();
-    }
-}
+    }else{
+      var defaultInfo = {
+           title : '퇴근까지 2시간15분'
+           ,author : '직장인A'
+           ,board  : {
+             boardId : '0'
+             ,name : 'novel'
+           }
+           ,thumbnailUrl : '/bootstrap/assets/img/book/suggest/readbook-1.png'
+           ,likes : '3'
+           ,views : '5'
+           ,content : '퇴근시간 2시간 15분전 부터 시계를 계속보는<br> 직장인의 이야기'
+          };
+
+          renderingPage(defaultInfo);
+      }
+ }
 
 
 $(document).ready(function () {

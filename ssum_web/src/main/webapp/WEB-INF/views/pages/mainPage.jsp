@@ -32,28 +32,7 @@
 				       <div class = "bx-wrapper" style="max-width:1000px;">
 				            <div class="bx-viewport" aria-live="polite">
 				                <ul id="likesList">
-				                  <!--Sample Contents Area-->
-                                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;" value="1" onClick='goPostDetailPage(this);'>
-				                        <a href="#" class="cover">
-				                            <span class="in">
-				                                <img src="/bootstrap/assets/img/book/suggest/readbook-1.png" alt="표지1">
-				                            </span>
-				                        </a>
-				                        <div class="infoBox">
-				                            <a href="#" class="tit">테스트1</a>
-				                            <div class="sub01" style="overflow-wrap:break-word;">
-				                                <span class="author">지은이1</span>
-				                            </div>
-				                            <div class ="sub02">
-				                            	<span class="hit hitYn">
-                                                      <img src="/bootstrap/assets/img/icon/icon-star.png" width="15" height="15" alt="관심" style="padding-right:0.25rem;">96</span>
-                                                </span>
-				                                <span class="hit hitYn">
-				                                    <img src="/bootstrap/assets/img/icon/icon-eye.png" width="20" height="20" alt="HIT" style="padding-right:0.25rem;">1.5만</span>
-				                                </span>
-				                            </div>
-				                        </div>
-				                    </li>
+				                  <!--Contents Area-->
 				                </ul>
 				            </div>
 				            <!--스크롤 -->
@@ -85,28 +64,7 @@
 				       <div class = "bx-wrapper">
 				            <div class="bx-viewport" aria-live="polite">
 				                <ul id="newList">
-				                 <!--Sample Contents Area-->
-				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;" value="2" onClick='goPostDetailPage(this);'>
-				                        <a href="#" class="cover">
-				                            <span class="in">
-				                                <img src="/bootstrap/assets/img/book/suggest/readbook-1.png" alt="표지1">
-				                            </span>
-				                        </a>
-				                        <div class="infoBox">
-				                            <a href="#" class="tit">테스트1</a>
-				                            <div class="sub01" style="overflow-wrap:break-word;">
-				                                <span class="author">지은이1</span>
-				                            </div>
-				                            <div class ="sub02">
-				                            	<span class="hit hitYn">
-                                                      <img src="/bootstrap/assets/img/icon/icon-star.png" width="15" height="15" alt="관심" style="padding-right:0.25rem;">96</span>
-                                                </span>
-				                                <span class="hit hitYn">
-				                                    <img src="/bootstrap/assets/img/icon/icon-eye.png" width="20" height="20" alt="HIT" style="padding-right:0.25rem;">1.5만</span>
-				                                </span>
-				                            </div>
-				                        </div>
-				                    </li>
+				                 <!-- Contents Area-->
 				                </ul>
 				            </div>
 				            <!--스크롤 -->
@@ -138,28 +96,7 @@
 				       <div class = "bx-wrapper" style="max-width:1000px;">
 				            <div class="bx-viewport" aria-live="polite">
 				                <ul id="viewsList">
-				                 <!--Sample Contents Area-->
-				                    <li class="item" style="border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;" value="3" onClick='goPostDetailPage(this);'>
-				                        <a href="#" class="cover">
-				                            <span class="in">
-				                                <img src="/bootstrap/assets/img/book/suggest/readbook-1.png" alt="표지1">
-				                            </span>
-				                        </a>
-				                        <div class="infoBox">
-				                            <a href="#" class="tit">테스트1</a>
-				                            <div class="sub01" style="overflow-wrap:break-word;">
-				                                <span class="author">지은이1</span>
-				                            </div>
-				                            <div class ="sub02">
-				                            	<span class="hit hitYn">
-                                                      <img src="/bootstrap/assets/img/icon/icon-star.png" width="15" height="15" alt="관심" style="padding-right:0.25rem;">96</span>
-                                                </span>
-				                                <span class="hit hitYn">
-				                                    <img src="/bootstrap/assets/img/icon/icon-eye.png" width="20" height="20" alt="HIT" style="padding-right:0.25rem;">1.5만</span>
-				                                </span>
-				                            </div>
-				                        </div>
-				                    </li>
+				                 <!--Contents Area-->
 				                </ul>
 				            </div>
 				            <!--스크롤 -->

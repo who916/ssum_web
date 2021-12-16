@@ -159,6 +159,30 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
 
 
  
- 
+ commonUtil.prototype.refreshToken = function(){
+    var refreshToken = localStorage.getItem("refToken");
+    var url = "http://13.209.61.51:8080/v1/refresh/token";
+    var params = { refreshTokenDto : refreshToken };
+
+    commonUtil.sendAjax = ("POST", url, "", params
+                           , function(res){
+                              if(res.code =='0'){
+                                //token 갱신
+                                var accessToken = res.data.accessToken;
+                                var refreshToken = res.data.refreshToken;
+
+                                localStorage.setItem("accToken", accessToken);
+                                localStorage.setItem("refToken", refreshToken);
+
+                                //새로고침
+                                location.reload();
+                               }
+                           }
+                           ,  function(res){
+                                var msg  = commonUtil.rtnMsg(res.code);
+                           		alert(msg);
+                           });
+
+ }
 
 

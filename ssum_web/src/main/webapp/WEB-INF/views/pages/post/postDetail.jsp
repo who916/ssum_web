@@ -52,26 +52,28 @@
 					</div>
 					<form id="postDetailForm">
                         <div style="display:-webkit-inline-box; grid-gap:2rem; gap:2rem; margin-bottom:2rem;">
-                            <img src="/bootstrap/assets/img/book/suggest/readbook-1.png" width="180px" height="240px" id="thumbnailImg">
+                            <img src="#" width="180px" height="240px" id="thumbnailImg">
                             <div style="display:flex; align-items : center; flex-direction:column;">
-                                <div style="margin-bottom :1rem; letter-spacing:3px;">
-                                <p id="title" style="line-height:2rem; font-size:1.5rem; font-weight:700;  margin-top:1.5rem; margin-bottom:0.5rem;">퇴근까지 2시간15분</p>
-                                    <div style="display:flex; justify-content : space-around;">
-                                      <span id="likes" style="font-size:0.8rem; letter-spacing:1px;">
-                                            <img src="/bootstrap/assets/img/icon/icon-star.png" width="15" height="15" alt="관심" style="padding-right:0.25rem;">96
-                                       </span>
-                                       <span id="views" style="font-size:0.8rem; letter-spacing:1px;">
-                                            <img src="/bootstrap/assets/img/icon/icon-eye.png" width="20" height="20" alt="HIT" style="padding-right:0.25rem;">1.5만
-                                       </span>
+                                    <div style="margin-bottom :1rem; letter-spacing:3px;">
+                                        <p id="title" style="line-height:2rem; font-size:1.5rem; font-weight:700;  margin-top:1.5rem; margin-bottom:0.5rem;"></p>
                                     </div>
-                                </div>
+                                    <div style="display:flex; justify-content : space-around;">
+                                      <span id="likes" style="font-size:0.8rem; letter-spacing:1px; margin : 0 0.5rem;">
+                                            <img src="/bootstrap/assets/img/icon/icon-star.png" width="15" height="15" alt="관심" style="padding-right:0.25rem;">
+                                       </span>
+                                       <span id="views" style="font-size:0.8rem; letter-spacing:1px; margin : 0 0.5rem;">
+                                            <img src="/bootstrap/assets/img/icon/icon-eye.png" width="20" height="20" alt="HIT" style="padding-right:0.25rem;">
+                                       </span>
+                                       <span style='color:#dee2e6; margin : 0 0.5rem'>|</span>
+                                       <span id ="boardName" style="font-size:0.8rem; letter-spacing:1px;"></span>
+                                    </div>
                                 <div style="border-top:1px solid #dee2e6; width:100%;">
                                     <p id="author" style="line-height:2rem; font-size:1rem; font-weight:700; margin-top:1rem; margin-bottom:0.5rem; display:flex; justify-content:center;">직장인A</p>
                                 </div>
                             </div>
                             <div style="display:flex; align-items :baseline; flex-direction:column;">
                                 <p style="font-weight:700; font-size:0.7rem; color:#c1c5c9; font-family:'NotoSan'; margin-bottom:1rem; margin-top:1rem;">작품설명</p>
-                                <p id="content" style="font-family:'NotoSan'; font-size:1rem; margin-top:0; margin-bottom:0;">퇴근시간 2시간 15분전 부터 시계를 계속보는<br> 직장인의 이야기</p>
+                                <p id="content" style="font-family:'NotoSan'; font-size:1rem; margin-top:0; margin-bottom:0;"></p>
                                 <div style="margin-top : 2rem; display:inline-flex;">
                                     <button class="btn btn-primary normal auth">이어보기</button>
                                     <button class="btn btn-outline-primary auth" style="margin-left:0.5rem;">첫화보기</button>
