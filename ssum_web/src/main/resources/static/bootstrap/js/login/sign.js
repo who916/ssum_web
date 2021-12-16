@@ -133,7 +133,7 @@ function signUp(){
             	alert(msg);
             }
 		}, function(res){ //error return
-             commonUtil.failMsg(res);
+             commonUtil.failFunc(res);
         });
 
 	}
