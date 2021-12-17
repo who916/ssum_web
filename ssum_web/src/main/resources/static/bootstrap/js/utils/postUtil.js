@@ -18,32 +18,44 @@ postUtil.prototype.goPostDetailPage = function(postId){
 /* paging 처리 */
 postUtil.prototype.setPaging = function(res, subType, currentPage){
 
-  var totalPage = res.totalPages; //게시판 전체 페이지 개수
+  var minCnt = 10; //최소 설정 page 갯수
+  var totalPage = res.totalPages; //게시판 전체 페이지 갯수
   var pageId = "#"+subType+"Paging";
+
   var prevPage = parseInt(currentPage -1); //이전 page
   var nextPage = parseInt(currentPage +1); //다음 page
-  var pageCnt = 10; //세팅 할 페이징 개수
+
+  var startPage = currentPage;
+  var endPage = minCnt; //화면에 세팅 할 마지막 page
 
 
     //화면에 그릴 page개 수 세팅
-    if(totalPage < 10 || (currentPage + 10)>= totalPage){
-          pageCnt = totalPage;
+    if(totalPage < minCnt || (currentPage + minCnt)>= totalPage){
+          endPage = totalPage;
     }else{
-          pageCnt = currentPage + 10;
+          endPage = currentPage + minCnt;
     }
+
+    //시작넘버 세팅
+    if(totalPage < minCnt){
+        startPage = 0;
+    }else if(totalPage-parseInt(currentPage-1) < minCnt){
+        startPage = endPage-9;
+    }
+
 
     //기존 데이터 제거
     $(pageId).empty();
 
-    if(currentPage > 0 && totalPage >= 10){
+    if(currentPage > 0 && totalPage >= minCnt){
         $(pageId).append("<div class='page-link custom-page-link' id='prevPage' value="+prevPage+" onClick='getPostListInfo("+prevPage+");'>이전</div>");
     }
 
-    for(var i = currentPage; i < pageCnt; i++){
+    for(var i = startPage; i < endPage; i++){
        $(pageId).append("<div class='page-link custom-page-link' value="+i+" id='page"+i+"' onClick='getPostListInfo("+i+");'>"+parseInt(i+1)+"</div>");
     }
 
-    if(currentPage + 9 <= totalPage){
+    if(currentPage + parseInt(minCnt-1) < totalPage){
          $(pageId).append("<div class='page-link custom-page-link' id='nextPage' value="+nextPage+" onClick='getPostListInfo("+nextPage+");'>다음</div>");
     }
 
