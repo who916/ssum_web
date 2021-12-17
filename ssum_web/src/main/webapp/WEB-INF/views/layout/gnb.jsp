@@ -25,8 +25,8 @@
 					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
 						href="#">작품읽기</a>
 						<ul class="navbar-sub">
-						  <li class="navbar-sub-item"><a href="/read-book/novel.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">소설</a></li>
-						  <li class="navbar-sub-item"><a href="/read-book/essay.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">시·에세이</a></li>
+						  <li class="navbar-sub-item"><a href="/board/novel.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">소설</a></li>
+						  <li class="navbar-sub-item"><a href="/board/essay.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">시·에세이</a></li>
 						</ul>	
 					</li>
 					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
