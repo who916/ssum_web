@@ -1,29 +1,12 @@
 var commonUtil;
 var postUtil ;
+var prefixUrl = "http://13.209.61.51:8080/";
+var type = "main";
 
-function getPostListInfo(type){
-    var url = "http://13.209.61.51:8080/v1/board/post/" + type;
-
-    commonUtil.sendAjax("GET",url,"", ""
-                , function(res){
-                    var msg = "";
-
-                    if(res.code == '0'){
-                       if(res.list != null){
-                            /* 메인화면 작품 목록 가져오기 */
-                            postUtil.setPostListInfo(res, type);
-                       }else{
-                         msg =  commonUtil.rtnMsg("-1004");
-                         alert(msg);
-                       }
-                    }else{
-                       msg  = commonUtil.rtnMsg(res.code);
-                       alert(msg);
-                    }
-
-                 }
-                , function(res){ commonUtil.failFunc(res);});
-
+function getPostListInfo(subType){
+    var pageNum = '0';
+    var url = prefixUrl+ "v1/board/post/"+ subType +"/"+pageNum;
+    postUtil.getPostListInfo(url, type, subType, pageNum);
 }
 
 function init(){

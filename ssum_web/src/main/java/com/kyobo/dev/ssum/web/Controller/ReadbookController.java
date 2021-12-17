@@ -10,5 +10,10 @@ public class ReadbookController {
 	 public String getNovelPage() {
 		 return "/pages/read-book/novelMain";
 	 }
+
+	@RequestMapping("/essay.do")
+	public String getEssayPage() {
+		return "/pages/read-book/essayMain";
+	}
 	 
 }

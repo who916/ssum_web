@@ -4898,6 +4898,13 @@ textarea.form-control-lg {
  font-size : 1rem;
 }
 
+.custom-page-link.active {
+  z-index: 2;
+  color: #0085A1;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
 .page-link {
   position: relative;
   display: block;
@@ -4917,6 +4924,7 @@ textarea.form-control-lg {
   background-color: #e9ecef;
   border-color: #dee2e6;
 }
+
 .page-link:focus {
   z-index: 3;
   color: #0085A1;
