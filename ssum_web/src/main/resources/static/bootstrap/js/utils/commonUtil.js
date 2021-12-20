@@ -211,7 +211,7 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
                                 localStorage.setItem("refToken", refreshToken);
 
                                 //재 연결 알림
-                                alert("로그인 정보가 갱신되었습니다.");
+                                alert("로그인 정보가 갱신되었습니다.작업을 다시 진행해주세요.");
 
                                 //새로고침
                                 location.reload();
