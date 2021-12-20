@@ -24,6 +24,9 @@ function setProfileInfo(result){
         if(profileImageUrl != null && profileImageUrl != '' && profileImageUrl != 'undefined'){
             document.getElementById("profileImg").src = profileImageUrl;
         }
+
+        //이름에 포커스 주기
+        document.getElementById('profileNm').focus();
     }else{
          var msg  = commonUtil.rtnMsg(result.code);
          alert(msg);
@@ -116,7 +119,7 @@ function sendProfileEditInfo(){
     //validationChk
     if(validationChk() && commonUtil.chkLogin()){
 
-        var url ="http://13.209.61.51.8080/v1/user";
+        var url ="http://13.209.61.51:8080/v1/user";
         var params = {
             name : $("#profileNm").val()
             ,phone : $("#profilePhone").val()
