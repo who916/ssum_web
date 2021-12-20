@@ -210,6 +210,9 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
                                 localStorage.setItem("accToken", accessToken);
                                 localStorage.setItem("refToken", refreshToken);
 
+                                //재 연결 알림
+                                alert("로그인 정보가 갱신되었습니다.");
+
                                 //새로고침
                                 location.reload();
                                }

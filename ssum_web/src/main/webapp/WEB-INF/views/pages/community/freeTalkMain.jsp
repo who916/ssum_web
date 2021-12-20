@@ -52,7 +52,7 @@
 			    <div style="display:flex; justify-content:space-between;">
 			      <a href="#!" style="font-size:1rem; margin-left:1rem; margin-top:0.5rem">
 			       <img src="/bootstrap/assets/img/icon/icon-megaphone.png" style="margin-right:0.5rem;width:30px;">자유게시판 이용수칙 입니다.</a>
-			      <a href="#!">
+			      <a href="/community/freeTalkNew.do">
 			        <button class="btn btn-primary normal auth text-uppercase" style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;">새 글 등록</button>
 			      </a>
 			   </div>
