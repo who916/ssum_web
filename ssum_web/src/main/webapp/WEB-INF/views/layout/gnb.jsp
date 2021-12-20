@@ -39,7 +39,7 @@
 						href="#">커뮤니티</a>
 						<ul class="navbar-sub">
 						  <li class="navbar-sub-item"><a href="/community/home.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">홈</a></li>
-						  <li class="navbar-sub-item"><a href="/community/home.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">자유게시판</a></li>
+						  <li class="navbar-sub-item"><a href="/community/freeTalk.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">자유게시판</a></li>
 						  <li class="navbar-sub-item"><a href="/community/home.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">매거진</a></li>
 						  <li class="navbar-sub-item"><a href="/community/home.do" class="nav-sub-link px-lg-3 py-3 py-lg-4">프로모션</a></li>
 						</ul>

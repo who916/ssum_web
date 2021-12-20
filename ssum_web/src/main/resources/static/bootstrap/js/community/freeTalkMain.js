@@ -1,8 +1,8 @@
 var commonUtil;
 var postUtil;
 var prefixUrl = "http://13.209.61.51:8080/";
-var type = "board";
-var subType = "novel";
+var type = "community";
+var subType = "free";
 
 
 function getPostListInfo(pageNum){
@@ -11,7 +11,7 @@ function getPostListInfo(pageNum){
 }
 
 function init(){
-    getPostListInfo('0');
+   getPostListInfo('0');
 }
 
 

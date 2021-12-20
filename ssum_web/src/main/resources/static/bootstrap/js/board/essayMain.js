@@ -6,7 +6,7 @@ var subType = "essay";
 
 function getPostListInfo(pageNum){
     var url = prefixUrl+"v1/board/" + subType +"/posts/" + pageNum;
-    postUtil.getPostListInfo(url,'board',subType,pageNum,true);
+    postUtil.getPostListInfo(url,type,subType,pageNum,true);
 }
 
 function init(){

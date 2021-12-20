@@ -11,4 +11,9 @@ public class CommunityController {
 	 public String getCommunityPage() {
 		 return "/pages/community/communityHome";
 	 }
+
+	@RequestMapping("/freeTalk.do")
+	public String getFreeBoardPage() {
+		return "/pages/community/freeTalkMain";
+	}
 }
