@@ -197,8 +197,10 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
 
     var url = "http://13.209.61.51:8080/v1/refresh/token";
     var params = { refreshToken : refreshToken };
+    var header = {"Content-Type": "application/json"
+                 ,"Accept": "application/json"};
 
-    commonUtil.sendAjax("POST", url, "", params
+    commonUtil.sendAjax("POST", url, header, params
                            , function(res){
                               if(res.code =='0'){
                                 //token 갱신
