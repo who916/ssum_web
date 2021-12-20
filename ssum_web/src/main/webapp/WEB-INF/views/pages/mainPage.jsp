@@ -27,7 +27,7 @@
 				<article class="post_unit" id="likesUnit">
 				       <div class="unit_header">
 				            <label style="font-weight: 600; margin-bottom: 1.25rem;">추천 글 리스트</label>
-				            <a href="/board/likes.do"><label style="font-size: 0.75rem;font-weight: 600;margin-left: 38rem; color:#818181;"><u>더보기</u></label></a>
+				            <label style="font-size: 0.75rem;font-weight: 600;margin-left: 38rem; color:#818181;"><a href="/board/likes.do"><u>더보기</u></a></label>
 				       </div>
 				    <div>
 				    <div class="thumb_type01" id ="likesUnitList">
@@ -61,7 +61,7 @@
                 <article class="post_unit" id="newUnit">
 				    <div class="unit_header">
 				        <label style="font-weight: 600; margin-bottom: 1.25rem;">최신 글 리스트</label>
-				        <a href="/board/new.do"><label style="font-size: 0.75rem;font-weight: 600;margin-left: 38rem; color:#818181;"><u>더보기</u></label></a>
+				        <label style="font-size: 0.75rem;font-weight: 600;margin-left: 38rem; color:#818181;"><a href="/board/new.do"><u>더보기</u></a></label>
 				    </div>
 				    <div class="thumb_type01" id ="newUnitList">
 				       <!-- post item-->
@@ -94,7 +94,7 @@
                 <article class="post_unit" id="viewsUnit"  style="margin-bottom : 5rem !important;">
 				    <div class="unit_header">
 				        <label style="font-weight: 600; margin-bottom: 1.25rem;">인기 글 리스트</label>
-				        <a href="/board/views.do"><label style="font-size: 0.75rem;font-weight: 600;margin-left: 38rem; color:#818181;"><u>더보기</u></label></a>
+				        <label style="font-size: 0.75rem;font-weight: 600;margin-left: 38rem; color:#818181;"><a href="/board/views.do"><u>더보기</u></a></label>
 				    </div>
 				    <div class="thumb_type01" id ="viewsUnitList">
 				       <!-- post item-->
