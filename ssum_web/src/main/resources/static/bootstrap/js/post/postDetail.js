@@ -6,7 +6,7 @@ var boardId ="" ; //게시판 id
 var thumbnailUrl=""; //작품 썸네일
 var likes =""; //좋아요수
 var views =""; //조회수
-var content = ""//설명
+var content = ""//내용
 
 
 function renderingPage(info){
