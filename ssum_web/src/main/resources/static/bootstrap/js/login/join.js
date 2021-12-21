@@ -123,7 +123,7 @@ function signUp(){
 	    var header = {"Content-Type": "application/json"
         	         ,"Accept": "application/json"};
 
-		commonUtil.sendAjax("POST","http://13.209.61.51:8080/v1/join",header, params, function(res){
+		commonUtil.sendAjax("POST","v1/join",header, params, function(res){
 		    if(res.code == '0'){ //success return
             	alert('가입이 완료되었습니다. 로그인 화면으로 이동합니다.');
             	commonUtil.redirect("/login");

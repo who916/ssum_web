@@ -1,3 +1,6 @@
+var prefixUrl = "http://13.209.61.51:8080/";
+//var prefixUrl ="http://192.168.1.202:8080/";
+
 function commonUtil(){}
 
 
@@ -154,9 +157,7 @@ commonUtil.prototype.failFunc = function(res){
 
 commonUtil.prototype.sendAjax = function(sendType, url, header, params, successCallback, errorCallback){
 
-        var sendUrl = url;
-        //var sendUrl = "http://192.168.1.202:8080/"+url;
-
+        var sendUrl = prefixUrl + url;
 
         $.ajax({
 			type :sendType,
@@ -195,7 +196,7 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
        return;
     }
 
-    var url = "http://13.209.61.51:8080/v1/refresh/token";
+    var url = "v1/refresh/token";
     var params = { refreshToken : refreshToken };
     var header = {"Content-Type": "application/json"
                  ,"Accept": "application/json"};

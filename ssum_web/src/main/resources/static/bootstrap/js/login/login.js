@@ -85,7 +85,7 @@ function login(){
 		var header = {"Content-Type": "application/json"
 		              ,"Accept": "application/json"};
 
-		commonUtil.sendAjax("POST", "http://13.209.61.51:8080/v1/login",header,params
+		commonUtil.sendAjax("POST", "v1/login",header,params
 		, function(res){setTokens(res);}
 		, function(res){
 		      commonUtil.failFunc(res);

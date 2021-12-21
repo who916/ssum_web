@@ -1,6 +1,5 @@
 var commonUtil;
 var postUtil;
-var prefixUrl = "http://13.209.61.51:8080/";
 var type = "community";
 var subType = "free";
 var accToken ="";
@@ -13,7 +12,7 @@ function submitPost(){
        commonUtil.redirect("/login");
     }
 
-    var url = prefixUrl +"v1/board/"+subType;
+    var url = "v1/board/"+subType;
     var params = {
         //author : $("#author").val() //내 정보
        content : $("#content").val()
@@ -22,7 +21,7 @@ function submitPost(){
     };
 
     var header = {"X-AUTH-TOKEN": accToken
-                  ,"Access" : "*/*"};
+                  ,"Content-Type" : "application/json"};
 
     commonUtil.sendAjax("POST",url,header,params
                         ,function(res){

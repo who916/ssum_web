@@ -39,7 +39,7 @@ function getProfileInfo(){
                 "X-AUTH-TOKEN" : accToken
             }
 
-            commonUtil.sendAjax("GET","http://13.209.61.51:8080/v1/user",header, accToken, function(res){setProfileInfo(res);}
+            commonUtil.sendAjax("GET","v1/user",header, accToken, function(res){setProfileInfo(res);}
             , function(res){ //실패 callback
                  commonUtil.failFunc(res);
             });
@@ -119,7 +119,7 @@ function sendProfileEditInfo(){
     //validationChk
     if(validationChk() && commonUtil.chkLogin()){
 
-        var url ="http://13.209.61.51:8080/v1/user";
+        var url ="v1/user";
         var params = {
             name : $("#profileNm").val()
             ,phone : $("#profilePhone").val()
@@ -129,27 +129,17 @@ function sendProfileEditInfo(){
         var header = { "X-AUTH-TOKEN" : localStorage.getItem("accToken")
                       ,"Content-type":"application/json; charset=utf-8"};
 
-        $.ajax({
-        			type :"PUT",
-        		    url :url,
-        		    dataType: 'json',
-        		    contentType : 'application/json;charset=utf-8',
-        		    data: JSON.stringify(params),
-        		    headers : header,
-        		    success: function(res){
-        		    	if(res.code == '0'){
-                           alert("프로필이 수정되었습니다.");
-                           commonUtil.redirect("/login/profile.do");
-                        }
 
-        		    },
-
-        		    error : function(XMLHttpRequest, textStatus, errorThrown){
-        		    		commonUtil.failMsg(XMLHttpRequest);
-
-        		    }
-
-       });
+        commonUtil.sendAjax("PUT", url, header, params
+                           , function(res){
+                                if(res.code == '0'){
+                                     alert("프로필이 수정되었습니다.");
+                                     commonUtil.redirect("/login/profile.do");
+                                }
+                           }
+                           , function(res){
+                              commonUtil.failMsg(res);
+                           });
 
      }
 

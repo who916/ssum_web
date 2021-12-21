@@ -28,6 +28,9 @@ function renderingPage(info){
         $("#content").html(content);
 
         //
+        if(thumbnailUrl == null || thumbnailUrl == '' || thumbnailUrl == 'undefined'){
+           thumbnailUrl = "https://namiezexx-test-bucket.s3.ap-northeast-2.amazonaws.com/ssum/mylib/book/mini-book4.png";
+        }
         document.getElementById("thumbnailImg").src = thumbnailUrl;
 }
 
@@ -42,7 +45,7 @@ if(accToken == null){
         var header = {
                   "X-AUTH-TOKEN" : accToken
         };
-        var url = "http://13.209.61.51:8080/v1/board/post/" + postId;
+        var url = "v1/board/post/" + postId;
 
         commonUtil.sendAjax("GET",url,header, ""
                     , function(res){ //정보세팅
