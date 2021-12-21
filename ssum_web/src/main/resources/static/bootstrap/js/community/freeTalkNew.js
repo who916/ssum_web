@@ -31,7 +31,7 @@ function submitPost(){
                                 var postId= res.data.postId;
 
                                 //post Detail정보 부르기
-                                commonUtil.redirect("/post/postDetail.do?postId="+postId);
+                                commonUtil.redirect("/community/freeTalkDetail.do?postId="+postId);
                              }else{
                                 var msg  = rtnMsg(res.code);
                                  alert(msg);

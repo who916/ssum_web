@@ -15,6 +15,17 @@ postUtil.prototype.goPostDetailPage = function(postId){
    }
 };
 
+postUtil.prototype.goFreeTalkDetailPage = function(postId){
+    if(commonUtil.chkLogin()){
+        var url = "http://192.168.1.204:8080/community/freeTalkDetail.do?postId="+postId;
+
+        commonUtil.redirect(url);
+   }else{
+       alert("유효하지 않은 접근 입니다. 로그인 후 다시 시도해 주세요");
+       commonUtil.redirect("/login");
+   }
+};
+
 /* paging 처리 */
 postUtil.prototype.setPaging = function(res, subType, currentPage){
 
@@ -125,7 +136,7 @@ postUtil.prototype.setPostListInfo = function(res, type, subType, pageNum, pageY
             }else if(type == 'board'){
                 $(id).append("<div class='post-preview' style='display:flex;' id='postId' value="+postId+"><img src='"+thumbnailUrl +"' width='200px' height='250px id='thumbnailUrl'/><div style='display:block; margin-left :1rem;'><div onClick='postUtil.goPostDetailPage("+postId+");'><h2 class='post-title' style='margin-top:1rem;' id='title'><a href='#!'>"+ title +"</a></h2></div><div><p class='post-meta' style='margin:0; font-size:1rem;' id='author'>Posted by <a href='#!'>"+author+"</a></p></div> <div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; font-family:'NotoSan'; id='content'>"+content+"</p></div><div style='display:inline-block; justify-content : space-around;'><span id='likes' style='font-size:0.8rem; letter-spacing:1px; margin:0 0.5rem;'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'>"+ likes+"</span><span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span><span style='color:#dee2e6; margin:0 0.5rem;'>|</span><span id ='boardName' style='font-size:0.8rem; letter-spacing:1px;'>"+boardName+"</span></div></div></div><hr class='my-4' />");
             }else if(type == 'community'){
-                $(id).append("<div class='post-preview' style='display:flex; flex-direction:inherit; justify-content:space-between;' id='postId' value="+postId+"><div style='display:block; margin-left :1rem;'><div onClick='postUtil.goPostDetailPage("+postId+");'><h3 class='post-title' style='margin-top:1rem; font-size:1.5rem;' id='title'><a href='#!'>"+title+"</a></h3></div><div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; color:#707070; font-family:NotoSan; font-size:1rem; font-weight:100;' id='content'>"+content+"</p></div><div style='display:flex; justify-content :flex-start;'><img src='"+profileImageUrl+"' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'><p class='post-meta' style='margin:0; font-size:1rem;' id='name' value="+userId+"><a href='#!'>"+name+"</a></p><span style='color:#dee2e6; margin:0 0.5rem;'>|</span><span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span></div></div><div><img src='"+thumbnailUrl+"' style='width:10rem; aspect-ratio:1/1;' id='thumbnailUrl'></div></div><hr class='my-4' />");
+                $(id).append("<div class='post-preview' style='display:flex; flex-direction:inherit; justify-content:space-between;' id='postId' value="+postId+"><div style='display:block; margin-left :1rem;'><div onClick='postUtil.goFreeTalkDetailPage("+postId+");'><h3 class='post-title' style='margin-top:1rem; font-size:1.5rem;' id='title'><a href='#!'>"+title+"</a></h3></div><div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; color:#707070; font-family:NotoSan; font-size:1rem; font-weight:100;' id='content'>"+content+"</p></div><div style='display:flex; justify-content :flex-start;'><img src='"+profileImageUrl+"' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'><p class='post-meta' style='margin:0; font-size:1rem;' id='name' value="+userId+"><a href='#!'>"+name+"</a></p><span style='color:#dee2e6; margin:0 0.5rem;'>|</span><span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span></div></div><div><img src='"+thumbnailUrl+"' style='width:10rem; aspect-ratio:1/1;' id='thumbnailUrl'></div></div><hr class='my-4' />");
             }
              //썸네일 없을 경우
              if(thumbnailUrl == null || thumbnailUrl == '' || thumbnailUrl == 'undefined' || thumbnailUrl == 'string'){
