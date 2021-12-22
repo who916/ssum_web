@@ -90,7 +90,7 @@
                             <!--div class="post-title episode-item" style="margin-top:0.625rem;font-size:1rem;">
                                  <img src='/bootstrap/assets/img/icon/avatar.png' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'>
                                  <span style="line-height:2rem; font-size:0.8rem; color:#707070;">직장인1</span><br>
-                                 <span style="font-size:0.8rem; display:inline-grid;color:#707070;font-weight:500">댓글 테스트 댓글 댓글</span>
+                                 <span style="font-size:0.8rem; display:inline-grid;color:#707070;font-weight:500 ">댓글 테스트 댓글 댓글</span>
                              </div>
                              <div class="post-title episode-item" style="margin-top:0.625rem;font-size:1rem;">
                                    <img src='/bootstrap/assets/img/icon/avatar.png' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;'>
@@ -105,7 +105,7 @@
                            </div>
                         </div>
                         <div class="form-floating">
-							<textarea class="form-control" id="comment"
+							<textarea class="form-control" id="commentArea"
 								placeholder="Enter your introduce here..." style="height: 12rem; border:1px solid #ced4da;"></textarea>
 						</div>
                         <div style="border-top: 1px solid #ced4da; margin-top : 2rem; justify-content:space-between; display:flex;"/>

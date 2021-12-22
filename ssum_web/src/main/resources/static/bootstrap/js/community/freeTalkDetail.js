@@ -18,7 +18,7 @@ var postDetailInfo = "";//포스트 인포
 var commentInfo; //코멘트 인포
 
 function submitComment(){
-    var comment = $("#comment").val();
+    var comment = $("#commentArea").val();
 
     if(commonUtil.isEmpty(comment)){
         alert("코멘트를 입력해주세요!");

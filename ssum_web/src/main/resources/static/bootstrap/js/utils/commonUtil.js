@@ -137,7 +137,7 @@ commonUtil.prototype.failMsg = function(res){
 
        alert(msg);
        return false;
-}
+};
 
 commonUtil.prototype.failFunc = function(res){
     var code = "";
@@ -153,7 +153,7 @@ commonUtil.prototype.failFunc = function(res){
     }else{
         commonUtil.failMsg(res);
     }
-}
+};
 
 commonUtil.prototype.sendAjax = function(sendType, url, header, params, successCallback, errorCallback){
 
@@ -256,5 +256,5 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
 
   commonUtil.prototype.getAccToken = function(){
         return localStorage.getItem("accToken");
-  }
+  };
 

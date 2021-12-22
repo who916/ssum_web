@@ -33,8 +33,9 @@ postUtil.prototype.goPostDetailPage = function(postId, boardName){
 
 
 /* paging 처리 */
-postUtil.prototype.setPaging = function(res, subType currentPage, itemCnt){
+postUtil.prototype.setPaging = function(res, subType, currentPage){
 
+  var minCnt = 10; //최소 설정 page 갯수
   var totalPage = res.totalPages; //게시판 전체 페이지 갯수
   var pageId = "#"+subType+"Paging";
 
@@ -46,16 +47,16 @@ postUtil.prototype.setPaging = function(res, subType currentPage, itemCnt){
 
 
     //화면에 그릴 page개 수 세팅
-    if(totalPage < itemCnt || (currentPage + itemCnt)>= totalPage){
+    if(totalPage < minCnt || (currentPage + minCnt)>= totalPage){
           endPage = totalPage;
     }else{
-          endPage = currentPage + itemCnt;
+          endPage = currentPage + minCnt;
     }
 
     //시작넘버 세팅
-    if(totalPage < itemCnt){
+    if(totalPage < minCnt){
         startPage = 0;
-    }else if(totalPage-parseInt(currentPage-1) < itemCnt){
+    }else if(totalPage-parseInt(currentPage-1) < minCnt){
         startPage = endPage-9;
     }
 
@@ -63,7 +64,7 @@ postUtil.prototype.setPaging = function(res, subType currentPage, itemCnt){
     //기존 데이터 제거
     $(pageId).empty();
 
-    if(currentPage > 0 && totalPage >= itemCnt){
+    if(currentPage > 0 && totalPage >= minCnt){
         $(pageId).append("<div class='page-link custom-page-link' id='prevPage' value="+prevPage+" onClick='getPostListInfo("+prevPage+");'>이전</div>");
     }
 
@@ -71,7 +72,7 @@ postUtil.prototype.setPaging = function(res, subType currentPage, itemCnt){
        $(pageId).append("<div class='page-link custom-page-link' value="+i+" id='page"+i+"' onClick='getPostListInfo("+i+");'>"+parseInt(i+1)+"</div>");
     }
 
-    if(currentPage + parseInt(itemCnt-1) < totalPage){
+    if(currentPage + parseInt(minCnt-1) < totalPage){
          $(pageId).append("<div class='page-link custom-page-link' id='nextPage' value="+nextPage+" onClick='getPostListInfo("+nextPage+");'>다음</div>");
     }
 
@@ -85,7 +86,7 @@ postUtil.prototype.setPaging = function(res, subType currentPage, itemCnt){
 }
 
 /*작품목록 가져오기 */
-postUtil.prototype.setPostListInfo = function(res, type, subType, pageNum, pageYn,itemCnt){
+postUtil.prototype.setPostListInfo = function(res, type, subType, pageNum, pageYn){
   var title = ""; //작품제목
   var author  = ""; //작가명
   var postId =""; //작품 id
@@ -146,9 +147,7 @@ postUtil.prototype.setPostListInfo = function(res, type, subType, pageNum, pageY
                 html += "<div onClick='postUtil.goPostDetailPage("+postId+")'>";
              }
 
-             html += "<a class='cover'><span class='in'><img src='"+thumbnailUrl+"' alt='표지1' id='thumbnailUrl'></span></a>";
-             html +="<div class='infoBox'><a class='tit'>"+title+"</a><div class='sub01' style='overflow-wrap:break-word;'><span class='author'>"+author+"</span></div>";
-             html +="<div class ='sub02'><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'/>"+likes+"</span><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'/>"+views+"</span></div></div></a></li>";
+             html += "<a class='cover'><span class='in'><img src='"+thumbnailUrl+"' alt='표지1' id='thumbnailUrl'></span></a><div class='infoBox'><a class='tit'>"+title+"</a><div class='sub01' style='overflow-wrap:break-word;'><span class='author'>"+author+"</span></div><div class ='sub02'><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'/>"+likes+"</span><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'/>"+views+"</span></div></div></a></li>";
 
             }else if(type == 'board'){
              html += "<div class='post-preview' style='display:flex;' id='postId' value="+postId+"><img src='"+thumbnailUrl +"' width='200px' height='250px id='thumbnailUrl'/><div style='display:block; margin-left :1rem;'>";
@@ -159,23 +158,14 @@ postUtil.prototype.setPostListInfo = function(res, type, subType, pageNum, pageY
                 html += "<div onClick='postUtil.goPostDetailPage("+postId+")'>";
              }
 
-             html += "<h2 class='post-title' style='margin-top:1rem;' id='title'><a href='#!'>"+ title +"</a></h2></div>";
-             html += "<div><p class='post-meta' style='margin:0; font-size:1rem;' id='author'>Posted by <a href='#!'>"+author+"</a></p></div>";
-             html += "<div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; font-family:'NotoSan'; id='content'>"+content+"</p></div>";
-             html += "<div style='display:inline-block; justify-content : space-around;'><span id='likes' style='font-size:0.8rem; letter-spacing:1px; margin:0 0.5rem;'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'>"+ likes+"</span>";
-             html += "<span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span><span style='color:#dee2e6; margin:0 0.5rem;'>|</span>";
-             html += "<span id ='boardName' style='font-size:0.8rem; letter-spacing:1px;'>"+boardName+"</span></div></div></div><hr class='my-4' />";
+             html += "<h2 class='post-title' style='margin-top:1rem;' id='title'><a href='#!'>"+ title +"</a></h2></div><div><p class='post-meta' style='margin:0; font-size:1rem;' id='author'>Posted by <a href='#!'>"+author+"</a></p></div> <div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; font-family:'NotoSan'; id='content'>"+content+"</p></div><div style='display:inline-block; justify-content : space-around;'><span id='likes' style='font-size:0.8rem; letter-spacing:1px; margin:0 0.5rem;'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'>"+ likes+"</span><span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span><span style='color:#dee2e6; margin:0 0.5rem;'>|</span><span id ='boardName' style='font-size:0.8rem; letter-spacing:1px;'>"+boardName+"</span></div></div></div><hr class='my-4' />";
 
 
             }else if(type == 'community'){
 
               html += "<div class='post-preview' style='display:flex; flex-direction:inherit; justify-content:space-between;' id='postId' value="+postId+"><div style='display:block; margin-left :1rem;'>";
               html += "<div onClick='postUtil.goFreeTalkDetailPage("+postId+");'>";
-              html += "<h3 class='post-title' style='margin-top:1rem; font-size:1.5rem;' id='title'><a href='#!'>"+title+"</a></h3></div>";
-              html += "<div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; color:#707070; font-family:NotoSan; font-size:1rem; font-weight:100;' id='content'>"+content+"</p></div>";
-              html += "<div style='display:flex; justify-content :flex-start;'><img src='"+profileImageUrl+"' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'><p class='post-meta' style='margin:0; font-size:1rem;' id='name' value="+userId+"><a href='#!'>"+name+"</a></p>";
-              html += "<span style='color:#dee2e6; margin:0 0.5rem;'>|</span><span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span></div></div>";
-              html += "<div><img src='"+thumbnailUrl+"' style='width:10rem; aspect-ratio:1/1;' id='thumbnailUrl'></div></div><hr class='my-4' />";
+              html += "<h3 class='post-title' style='margin-top:1rem; font-size:1.5rem;' id='title'><a href='#!'>"+title+"</a></h3></div><div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; color:#707070; font-family:NotoSan; font-size:1rem; font-weight:100;' id='content'>"+content+"</p></div><div style='display:flex; justify-content :flex-start;'><img src='"+profileImageUrl+"' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'><p class='post-meta' style='margin:0; font-size:1rem;' id='name' value="+userId+"><a href='#!'>"+name+"</a></p><span style='color:#dee2e6; margin:0 0.5rem;'>|</span><span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span></div></div><div><img src='"+thumbnailUrl+"' style='width:10rem; aspect-ratio:1/1;' id='thumbnailUrl'></div></div><hr class='my-4' />";
             }
 
             $(id).append(html);
@@ -225,8 +215,7 @@ postUtil.prototype.submitComment = function(postId, comments){
 
 
 
-}
-
+};
 
 /*자유게시판 코멘트목록 가져오기 */
 postUtil.prototype.setCommentListInfo = function(res, subType, currentPage){
@@ -254,8 +243,8 @@ postUtil.prototype.setCommentListInfo = function(res, subType, currentPage){
 
        //태그 생성 및 화면 첨부
        for(var i=0; i < dataList.length; i++){
-          commentId = dataList[i].commonId;
-          comments = dataList[i].contents;
+          commentId= dataList[i].commentId;
+          comment= dataList[i].contents;
           modifiedAt = dataList[i].modifiedAt;
           nestedCommentCount = dataList[i].nestedCommentCount;
           userId = dataList[i].userId;
@@ -268,11 +257,10 @@ postUtil.prototype.setCommentListInfo = function(res, subType, currentPage){
           html += "<div class='post-title episode-item' style='margin-top:0.625rem;font-size:1rem;'value='"+commentId+"'>";
           html += "<img src='/bootstrap/assets/img/icon/avatar.png' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;'>";
           html += "<span style='line-height:2rem; font-size:0.8rem; color:#707070;' id='userName' value='"+userId+"'>"+userName+"</span><br>";
-          html += "<span style='font-size:0.8rem; display:inline-grid; color:#707070; font-weight:500' margin-top:0.5rem; id='comments'>"+comments+"</span><br>";
+          html += "<span style='font-size:0.8rem; display:inline-grid; color:#707070; font-weight:500' margin-top:0.5rem; id='comment'>"+comment+"</span><br>";
           html += "<span style='line-height:2rem; display:inline-grid; font-size:0.8rem; color:#707070; font-weight:300;' id='modifiedAt'>"+modifiedAt+"</span></div>";
 
           $(id).append(html);
-
         }
 
 
@@ -300,6 +288,3 @@ postUtil.prototype.getPostListInfo = function(url ,type, subType, pageNum, pageY
                     , function(res){ commonUtil.failFunc(res);}
                );
 };
-
-
-
