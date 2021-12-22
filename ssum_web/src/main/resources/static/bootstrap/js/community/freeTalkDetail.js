@@ -1,5 +1,9 @@
 var commonUtil;
 var postUtil;
+
+var subType = "comment";
+
+/* 작품 정보 */
 var postId = ""; //작품 id
 var title = ""; //작품제목
 var author  = ""; //작가명
@@ -13,9 +17,15 @@ var profileImageUrl = "";
 var userId = ""; //사용자 id
 var commentCnt = "0"; //comment 전체 개수
 
-
+/* 통신 결과 값 */
 var postDetailInfo = "";//포스트 인포
 var commentInfo; //코멘트 인포
+
+function getCommentListInfo(pageNum){
+    var url = "v1/board/" + subType +"/"+postId+"/" + pageNum;
+   // postUtil.getCommentListInfo(url,subType,pageNum);
+   alert("next Page");
+}
 
 function submitComment(){
     var comment = $("#commentArea").val();
@@ -78,7 +88,7 @@ function renderingPage(postInfo, commentInfo){
   }
 function getCommentInfo(){
 
-    var url = "v1/board/comment/" + postId;
+    var url = "v1/board/"+subType+"/" + postId;
 
     commonUtil.sendAjax("GET", url, "", ""
     ,function(res){

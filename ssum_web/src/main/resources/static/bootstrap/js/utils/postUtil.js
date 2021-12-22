@@ -35,7 +35,7 @@ postUtil.prototype.goPostDetailPage = function(postId, boardName){
 /* paging 처리 */
 postUtil.prototype.setPaging = function(res, subType, currentPage){
 
-  var minCnt = 10; //최소 설정 page 갯수
+  var itemCnt = 10; //최소 설정 page 갯수
   var totalPage = res.totalPages; //게시판 전체 페이지 갯수
   var pageId = "#"+subType+"Paging";
 
@@ -43,20 +43,20 @@ postUtil.prototype.setPaging = function(res, subType, currentPage){
   var nextPage = parseInt(currentPage +1); //다음 page
 
   var startPage = currentPage;
-  var endPage = minCnt; //화면에 세팅 할 마지막 page
+  var endPage = itemCnt; //화면에 세팅 할 마지막 page
 
 
     //화면에 그릴 page개 수 세팅
-    if(totalPage < minCnt || (currentPage + minCnt)>= totalPage){
+    if(totalPage < itemCnt || (currentPage + itemCnt)>= totalPage){
           endPage = totalPage;
     }else{
-          endPage = currentPage + minCnt;
+          endPage = currentPage + itemCnt;
     }
 
     //시작넘버 세팅
-    if(totalPage < minCnt){
+    if(totalPage < itemCnt){
         startPage = 0;
-    }else if(totalPage-parseInt(currentPage-1) < minCnt){
+    }else if(totalPage-parseInt(currentPage-1) < itemCnt){
         startPage = endPage-9;
     }
 
@@ -64,18 +64,29 @@ postUtil.prototype.setPaging = function(res, subType, currentPage){
     //기존 데이터 제거
     $(pageId).empty();
 
-    if(currentPage > 0 && totalPage >= minCnt){
-        $(pageId).append("<div class='page-link custom-page-link' id='prevPage' value="+prevPage+" onClick='getPostListInfo("+prevPage+");'>이전</div>");
+    var html = "";
+
+    if(currentPage > 0 && totalPage >= itemCnt){
+
+        html += "<div class='page-link custom-page-link' id='prevPage' value="+prevPage+" onClick='getPostListInfo("+prevPage+");'>이전</div>";
+        //$(pageId).append("");
     }
 
     for(var i = startPage; i < endPage; i++){
-       $(pageId).append("<div class='page-link custom-page-link' value="+i+" id='page"+i+"' onClick='getPostListInfo("+i+");'>"+parseInt(i+1)+"</div>");
+        if(subType == 'comment'){
+            html+= "<div class='page-link custom-page-link' value="+i+" id='page"+i+"' onClick='getCommentListInfo("+i+");'>"+parseInt(i+1)+"</div>";
+        }else{
+            html+= "<div class='page-link custom-page-link' value="+i+" id='page"+i+"' onClick='getPostListInfo("+i+");'>"+parseInt(i+1)+"</div>";
+        }
+       //$(pageId).append("");
     }
 
-    if(currentPage + parseInt(minCnt-1) < totalPage){
-         $(pageId).append("<div class='page-link custom-page-link' id='nextPage' value="+nextPage+" onClick='getPostListInfo("+nextPage+");'>다음</div>");
+    if(currentPage + parseInt(itemCnt-1) < totalPage){
+       html += "<div class='page-link custom-page-link' id='nextPage' value="+nextPage+" onClick='getPostListInfo("+nextPage+");'>다음</div>";
+         //$(pageId).append("<div class='page-link custom-page-link' id='nextPage' value="+nextPage+" onClick='getPostListInfo("+nextPage+");'>다음</div>");
     }
 
+    $(pageId).append(html);
 
   //select css 설정
   $(".custom-page-link").removeClass('active');
@@ -234,7 +245,7 @@ postUtil.prototype.setCommentListInfo = function(res, subType, currentPage){
   var dataList = res.commentList;
 
     //page처리
-    postUtil.setPaging(res, subType, currentPage);
+    //postUtil.setPaging(res, subType, currentPage);
 
 
     var id = "#"+subType +"List";
@@ -275,6 +286,29 @@ postUtil.prototype.getPostListInfo = function(url ,type, subType, pageNum, pageY
                            if(res.list != null){
                                 /*  작품 목록 가져오기 */
                                 postUtil.setPostListInfo(res, type, subType, pageNum, pageYn);
+                           }else{
+                             msg =  commonUtil.rtnMsg("-1004");
+                             alert(msg);
+                           }
+                        }else{
+                           msg  = commonUtil.rtnMsg(res.code);
+                           alert(msg);
+                        }
+
+                     }
+                    , function(res){ commonUtil.failFunc(res);}
+               );
+};
+
+postUtil.prototype.getCommentListInfo = function(url ,subType, pageNum){
+        commonUtil.sendAjax("GET",url,"", ""
+                    , function(res){
+                        var msg = "";
+
+                        if(res.code == '0'){
+                           if(res.list != null){
+                                /*  코멘트 목록 가져오기 */
+                                postUtil.setCommentListInfo(res, type, subType, pageNum);
                            }else{
                              msg =  commonUtil.rtnMsg("-1004");
                              alert(msg);
