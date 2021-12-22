@@ -100,7 +100,7 @@
                              </div>
                         <!-- 댓글 Page 처리 -->
                         <div style="display:flex; justify-content:center; margin-top:1rem; margin-bottom:1rem;">
-                            <div class="pagination" id="commentPage">
+                            <div class="pagination" id="commentPaging">
                             </div>
                            </div>
                         </div>
@@ -115,7 +115,7 @@
                         		 </div>
 						        <div style="margin-top:1rem;">
                                      <button class="btn btn-primary normal auth"  style="padding-left:1rem; padding-right:1rem; height:3rem; font-size:0.8rem;"
-                                       id="saveButton" onClick="">등록</button>
+                                       id="submitComment" onClick="submitComment();">등록</button>
 			                    </div>
                          </div>
                     </div>

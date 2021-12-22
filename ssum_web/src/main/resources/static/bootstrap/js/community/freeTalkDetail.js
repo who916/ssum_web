@@ -17,6 +17,18 @@ var commentCnt = "0"; //comment 전체 개수
 var postDetailInfo = "";//포스트 인포
 var commentInfo; //코멘트 인포
 
+function submitComment(){
+    var comment = $("#comment").val();
+
+    if(commonUtil.isEmpty(comment)){
+        alert("코멘트를 입력해주세요!");
+
+    }else{
+        postUtil.submitComment(postId, comment);
+    }
+}
+
+
 function renderingCommentArea(commentInfo){
     postUtil.setCommentListInfo(commentInfo, 'comment', '0');
 }
@@ -71,7 +83,7 @@ function getCommentInfo(){
     commonUtil.sendAjax("GET", url, "", ""
     ,function(res){
         if(res.code == '0'){
-             if(res.data != null){
+             if(res.list != null){
                  commentInfo = {commentList : res.list, totalItems : res.totalItems, totalPages : res.totalPages};
                  renderingPage(postDetailInfo, commentInfo );
             }else{

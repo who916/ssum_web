@@ -254,4 +254,7 @@ commonUtil.prototype.sendAjax = function(sendType, url, header, params, successC
 
    };
 
+  commonUtil.prototype.getAccToken = function(){
+        return localStorage.getItem("accToken");
+  }
 
