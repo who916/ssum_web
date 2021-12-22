@@ -38,6 +38,7 @@
 	<!-- js -->
 	<script type="text/javascript" src="/bootstrap/js/community/freeTalkDetail.js"></script>
 	<script type="text/javascript" src="/bootstrap/js/utils/commonUtil.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/utils/postUtil.js"></script>
 	<!-- Navigation-->
 	<%@ include file="/WEB-INF/views/layout/gnb.jsp"%>
 	<header class="pagehead"
@@ -59,17 +60,17 @@
 			<div class="row gx-4 gx-lg-5 justify-content-center">
 				<div class="col-md-10 col-lg-8 col-xl-7">
 					<div class="my-5" style="justify-content: center; display: inline-block; margin-bottom:1rem !important;">
-						<label style="font-weight: 600; margin-bottom: 1rem;" id="title">글제목</label>
+						<label style="font-weight: 600; margin-bottom: 1rem;" id="title"></label>
 			            <div style="display:flex; justify-content : space-around;">
-			                 <img src='/bootstrap/assets/img/icon/avatar.png' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;'>
-			                 <span id="author" style="line-height:2rem; font-size:1rem; color:#707070; font-weight:700; display:flex; justify-content:center;">직장인A</span>
+			                 <img src='/bootstrap/assets/img/icon/avatar.png' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'>
+			                 <span id="postOwner" style="line-height:2rem; font-size:1rem; color:#707070; font-weight:700; display:flex; justify-content:center;"></span>
 			                 <span style='color:#dee2e6; margin : 0 0.5rem'>|</span>
 			                 <div style="display:inherit; margin-top:0.3rem;">
                                  <span id="likes" style="font-size:0.8rem; letter-spacing:1px; margin : 0 0.5rem;">
-                                     <img src="/bootstrap/assets/img/icon/icon-star.png" width="15" height="15" alt="관심" style="padding-right:0.25rem;">15
+                                     <img src="/bootstrap/assets/img/icon/icon-star.png" width="15" height="15" alt="관심" style="padding-right:0.25rem;">
                                  </span>
                                  <span id="views" style="font-size:0.8rem; letter-spacing:1px; margin : 0 0.5rem;">
-                                      <img src="/bootstrap/assets/img/icon/icon-eye.png" width="20" height="20" alt="HIT" style="padding-right:0.25rem;">25
+                                      <img src="/bootstrap/assets/img/icon/icon-eye.png" width="20" height="20" alt="HIT" style="padding-right:0.25rem;">
                                   </span>
                               </div>
                         </div>
@@ -79,16 +80,15 @@
                         <div style="display:-webkit-inline-box; grid-gap:2rem; gap:2rem; margin-bottom:2rem; margin-top:1.5rem;">
                             <img src="/bootstrap/assets/img/bg/home-bg.jpg" width="180px" height="240px" id="thumbnailImg">
                             <div id="content" style="font-size :1rem; font-family:'NotoSan';">
-                                어쩌구 저쩌구 저쩌구
                             </div>
                         </div>
                         <!-- 댓글 창 --->
                         <div style="border-top:1px solid #dee2e6;"></div>
-                        <label for="comment" style="font-size:1rem;margin-top:1rem;margin-bottom:0.75rem;">댓글 <span style="font-weight:700; font-size:0.75rem;color:#006a81;">2</span></label>
+                        <label for="comment" style="font-size:1rem;margin-top:1rem;margin-bottom:0.75rem;">댓글 <span style="font-weight:700; font-size:0.75rem;color:#006a81;" id='commentCnt'></span></label>
                         <!--댓글 리스트 -->
                         <div class="post-preview" id="commentList">
-                            <div class="post-title episode-item" style="margin-top:0.625rem;font-size:1rem;">
-                                 <img src='/bootstrap/assets/img/icon/avatar.png' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;'>
+                            <!--div class="post-title episode-item" style="margin-top:0.625rem;font-size:1rem;">
+                                 <img src='/bootstrap/assets/img/icon/avatar.png' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'>
                                  <span style="line-height:2rem; font-size:0.8rem; color:#707070;">직장인1</span><br>
                                  <span style="font-size:0.8rem; display:inline-grid;color:#707070;font-weight:500">댓글 테스트 댓글 댓글</span>
                              </div>
@@ -96,18 +96,11 @@
                                    <img src='/bootstrap/assets/img/icon/avatar.png' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;'>
                                    <span style="line-height:2rem; font-size:0.8rem; color:#707070;">직장인1</span><br>
                                    <span style="font-size:0.8rem; display:inline-grid;color:#707070; font-weight:500">퍼블퍼블</span>
-                              </div>
+                              </div>-->
                              </div>
                         <!-- 댓글 Page 처리 -->
                         <div style="display:flex; justify-content:center; margin-top:1rem; margin-bottom:1rem;">
                             <div class="pagination" id="commentPage">
-                                <div class="page-link custom-page-link">1</div>
-                                <div class="page-link custom-page-link">2</div>
-                                <div class="page-link custom-page-link">3</div>
-                                <div class="page-link custom-page-link">4</div>
-                                <div class="page-link custom-page-link">5</div>
-                                <div class="page-link custom-page-link">6</div>
-                            <div class="page-link custom-page-link"><div>다음</div></div>
                             </div>
                            </div>
                         </div>
