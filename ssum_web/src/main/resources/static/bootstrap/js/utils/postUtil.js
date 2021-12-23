@@ -149,6 +149,17 @@ postUtil.prototype.setPostListInfo = function(res, type, subType, pageNum, pageY
 
            var html = "";
 
+           //미리보기 자르기
+           if(title.length > 15){
+               title = title.substring(0,10);
+               title += "...";
+           }
+
+           if(content.length > 50){
+              content = content.substring(0,45);
+              content += "...";
+           }
+
            if(type == 'main'){
              html += "<li class='item' style='border-radius : 15px;-webkit-border-radius : 15px;overflow : hidden; border-width : 1px;' value='"+postId+"'>";
 
@@ -158,25 +169,40 @@ postUtil.prototype.setPostListInfo = function(res, type, subType, pageNum, pageY
                 html += "<div onClick='postUtil.goPostDetailPage("+postId+")'>";
              }
 
-             html += "<a class='cover'><span class='in'><img src='"+thumbnailUrl+"' alt='표지1' id='thumbnailUrl'></span></a><div class='infoBox'><a class='tit'>"+title+"</a><div class='sub01' style='overflow-wrap:break-word;'><span class='author'>"+author+"</span></div><div class ='sub02'><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'/>"+likes+"</span><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'/>"+views+"</span></div></div></a></li>";
+             html += "<a class='cover'><span class='in'><img src='"+thumbnailUrl+"' alt='표지1' id='thumbnailUrl'></span></a>";
+             html += "<div class='infoBox'><a class='tit'>"+title+"</a><div class='sub01' style='overflow-wrap:break-word;'><span class='author'>"+author+"</span></div>";
+             html += "<div class ='sub02'><span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'/>"+likes+"</span>";
+             html += "<span class='hit hitYn'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'/>"+views+"</span></div></div></a></li>";
 
             }else if(type == 'board'){
-             html += "<div class='post-preview' style='display:flex;' id='postId' value="+postId+"><img src='"+thumbnailUrl +"' width='200px' height='250px id='thumbnailUrl'/><div style='display:block; margin-left :1rem;'>";
+                 html += "<div class='post-preview' style='display:flex;' id='postId' value="+postId+"><img src='"+thumbnailUrl +"' width='200px' height='250px id='thumbnailUrl'/><div style='display:block; margin-left :1rem;'>";
 
-             if(boardName == 'free'){
-                html += "<div onClick='postUtil.goFreeTalkDetailPage("+postId+")'>";
-             }else{
-                html += "<div onClick='postUtil.goPostDetailPage("+postId+")'>";
-             }
+                 if(boardName == 'free'){
+                    html += "<div onClick='postUtil.goFreeTalkDetailPage("+postId+")'>";
+                 }else{
+                    html += "<div onClick='postUtil.goPostDetailPage("+postId+")'>";
+                 }
 
-             html += "<h2 class='post-title' style='margin-top:1rem;' id='title'><a href='#!'>"+ title +"</a></h2></div><div><p class='post-meta' style='margin:0; font-size:1rem;' id='author'>Posted by <a href='#!'>"+author+"</a></p></div> <div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; font-family:'NotoSan'; id='content'>"+content+"</p></div><div style='display:inline-block; justify-content : space-around;'><span id='likes' style='font-size:0.8rem; letter-spacing:1px; margin:0 0.5rem;'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'>"+ likes+"</span><span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span><span style='color:#dee2e6; margin:0 0.5rem;'>|</span><span id ='boardName' style='font-size:0.8rem; letter-spacing:1px;'>"+boardName+"</span></div></div></div><hr class='my-4' />";
+
+
+                 html += "<h2 class='post-title' style='margin-top:1rem;' id='title'><a href='#!'>"+ title +"</a></h2></div><div><p class='post-meta' style='margin:0; font-size:1rem;' id='author'>Posted by <a href='#!'>"+author+"</a></p></div>";
+                 html += "<div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; font-family:'NotoSan'; id='content'>"+content+"</p></div>";
+                 html += "<div style='display:inline-block; justify-content : space-around;'><span id='likes' style='font-size:0.8rem; letter-spacing:1px; margin:0 0.5rem;'><img src='/bootstrap/assets/img/icon/icon-star.png' width='15' height='15' alt='관심' style='padding-right:0.25rem;'>"+ likes+"</span>";
+                 html += "<span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span><span style='color:#dee2e6; margin:0 0.5rem;'>|</span>";
+                 html += "<span id ='boardName' style='font-size:0.8rem; letter-spacing:1px;'>"+boardName+"</span></div></div></div><hr class='my-4' />";
 
 
             }else if(type == 'community'){
 
-              html += "<div class='post-preview' style='display:flex; flex-direction:inherit; justify-content:space-between;' id='postId' value="+postId+"><div style='display:block; margin-left :1rem;'>";
-              html += "<div onClick='postUtil.goFreeTalkDetailPage("+postId+");'>";
-              html += "<h3 class='post-title' style='margin-top:1rem; font-size:1.5rem;' id='title'><a href='#!'>"+title+"</a></h3></div><div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; color:#707070; font-family:NotoSan; font-size:1rem; font-weight:100;' id='content'>"+content+"</p></div><div style='display:flex; justify-content :flex-start;'><img src='"+profileImageUrl+"' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'><p class='post-meta' style='margin:0; font-size:1rem;' id='name' value="+userId+"><a href='#!'>"+name+"</a></p><span style='color:#dee2e6; margin:0 0.5rem;'>|</span><span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span></div></div><div><img src='"+thumbnailUrl+"' style='width:10rem; aspect-ratio:1/1;' id='thumbnailUrl'></div></div><hr class='my-4' />";
+                  html += "<div class='post-preview' style='display:flex; flex-direction:inherit; justify-content:space-between;' id='postId' value="+postId+"><div style='display:block; margin-left :1rem;'>";
+                  html += "<div onClick='postUtil.goFreeTalkDetailPage("+postId+");'>";
+                  html += "<h3 class='post-title' style='margin-top:1rem; font-size:1.5rem;' id='title'><a href='#!'>"+title+"</a></h3></div>";
+                  html += "<div><p style='margin:0; margin-bottom:1.5rem; margin-top:1rem; color:#707070; font-family:NotoSan; font-size:1rem; font-weight:100;' id='content'>"+content+"</p></div>";
+                  html += "<div style='display:flex; justify-content :flex-start;'><img src='"+profileImageUrl+"' style='width:2rem; aspect-ratio:1/1; margin-right:0.5rem;' id='profileImageUrl'>";
+                  html += "<p class='post-meta' style='margin:0; font-size:1rem;' id='name' value="+userId+"><a href='#!'>"+name+"</a></p><span style='color:#dee2e6; margin:0 0.5rem;'>|</span>";
+                  html += "<span id='views' style='font-size:0.8rem; letter-spacing:1px;'><img src='/bootstrap/assets/img/icon/icon-eye.png' width='20' height='20' alt='HIT' style='padding-right:0.25rem;'>"+views+"</span></div></div>";
+                  html += "<div><img src='"+thumbnailUrl+"' style='width:10rem; aspect-ratio:1/1;' id='thumbnailUrl'></div></div><hr class='my-4' />";
+
             }
 
             $(id).append(html);

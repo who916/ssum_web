@@ -77,7 +77,7 @@
 					</div>
 					<div id="freeTalkDetailForm" style="border-top:1px solid #dee2e6;">
 					   <!--본문 ---->
-                        <div style="display:-webkit-inline-box; grid-gap:2rem; gap:2rem; margin-bottom:2rem; margin-top:1.5rem;">
+                        <div style="display:block; grid-gap:2rem; gap:2rem; margin-bottom:2rem; margin-top:1.5rem;">
                             <img src="/bootstrap/assets/img/bg/home-bg.jpg" width="180px" height="240px" id="thumbnailImg">
                             <div id="content" style="font-size :1rem; font-family:'NotoSan';">
                             </div>

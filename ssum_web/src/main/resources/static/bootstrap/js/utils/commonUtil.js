@@ -1,5 +1,6 @@
 var prefixUrl = "http://13.209.61.51:8080/";
 //var prefixUrl ="http://192.168.1.202:8080/";
+//var prefixUrl = "http://13.209.61.51:8082/";
 
 function commonUtil(){}
 
